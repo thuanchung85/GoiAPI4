@@ -17,7 +17,7 @@ public struct RecoveryWalletView: View {
         NavigationView {
             //Choose View
             VStack(alignment: .center) {
-                
+                Text("GOI API 4")
                
             }
             .padding(.bottom,50)
