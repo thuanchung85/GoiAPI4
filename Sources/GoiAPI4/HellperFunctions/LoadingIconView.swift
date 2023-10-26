@@ -35,7 +35,7 @@ struct LoadingView<Content>: View where Content: View {
                     .disabled(self.isShowing)
                     .blur(radius: self.isShowing ? 3 : 0)
                     .padding(.horizontal)
-                VStack {
+                VStack(alignment: .center) {
                     Text("Making Wallet...")
                     ActivityIndicator(isAnimating: .constant(true), style: .large)
                 }
