@@ -37,12 +37,12 @@ struct HybridTextField: View {
             //Add any common modifiers here so they dont have to be repeated for each Field
             Button(action: {
                 isSecure.toggle()
-                if(isSecure == true) {
-                    //thay chuoi nhap = *
-                    textHide = text.map({ Character in
-                        return "*"
-                    }).joined()
-                }
+                
+                textHide = text.map({ Character in
+                    return "*"
+                }).joined()
+                
+                
                 
             }, label: {
                 Image(systemName: !isSecure ? "eye.slash" : "eye" )
