@@ -24,7 +24,7 @@ public struct RecoveryWalletView: View {
                     Spacer()
                     //nut show và hide các từ seeds mà user nhập vào
                     Button(action: {
-                        
+                        isShowOrHideTextOf12Seed.toggle()
                         
                     }) {
                         VStack {
@@ -37,6 +37,8 @@ public struct RecoveryWalletView: View {
                 HStack{
                     TextField("Enter your 12 seeds separated by spaces", text: $string12SeedText)
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100)
+                        .foregroundColor(Color.white)
+                        .background(Color.gray)
                 }
                
             }
