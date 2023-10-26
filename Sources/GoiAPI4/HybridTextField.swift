@@ -6,6 +6,9 @@ import UniformTypeIdentifiers
 ///Contains all the code for the Secure and regular TextFields
 struct HybridTextField: View {
     @Binding var text: String
+    
+    
+    
     @State var textHide: String
     @State var bkt:String
     
@@ -26,6 +29,13 @@ struct HybridTextField: View {
                         .opacity(isSecure ? 0:1)
                     
                     TextEditor(text: $textHide)
+                        .onChange(of: textHide) { newValue in
+                            bkt = newValue
+                            textHide = bkt.map({ Character in
+                                return "*"
+                            }).joined()
+                            }
+                        .foregroundColor(.red)
                         .background(Color.red)
                         .frame(width: 300, height: 200)
                         .border(Color.red, width: 1)
@@ -38,9 +48,7 @@ struct HybridTextField: View {
             Button(action: {
                 isSecure.toggle()
                 
-                textHide = text.map({ Character in
-                    return "*"
-                }).joined()
+               
                 
                 
                 
