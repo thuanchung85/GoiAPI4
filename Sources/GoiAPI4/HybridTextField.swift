@@ -3,40 +3,47 @@ import CoreImage.CIFilterBuiltins
 import Foundation
 import SwiftUI
 import UniformTypeIdentifiers
-///Contains all the code for the Secure and regular TextFields
-struct HybridTextField: View {
-    @Binding var text: String
-    @State var backupText =  ""
-    @State var isSecure: Bool = true
-    var titleKey: String
+
+struct CustomSecureField: View {
+    
+    @State var isPasswordVisible: Bool = false
+    @Binding var password: String
+    var placeholder = ""
+    
     var body: some View {
-        HStack{
-            
-                TextEditor(text: $text)
-            
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100)
-            .foregroundColor(Color.blue)
-            .background(Color.gray)
-            .cornerRadius(5)
-           
-            //Add any common modifiers here so they dont have to be repeated for each Field
-            Button(action: {
-                isSecure.toggle()
-                if(isSecure == true){
-                    backupText = text
-                    self.text = String(text.map { char in
-                        return "*"
-                    })
+        HStack(spacing: 12) {
+            ZStack {
+                if password.isEmpty {
+                    HStack {
+                        Text(placeholder)
+                        Spacer()
+                    }
                 }
-                else
-                {
-                    text = backupText
+                
+                ZStack {
+                    TextField("",
+                              text: $password)
+                    .frame(maxHeight: .infinity)
+                    .opacity(isPasswordVisible ? 1 : 0)
+                    
+                    SecureField("",
+                                text: $password)
+                    .frame(maxHeight: .infinity)
+                    .opacity(isPasswordVisible ? 0 : 1)
                 }
-            }, label: {
-                Image(systemName: !isSecure ? "eye.slash" : "eye" )
-            })
-        }//Add any modifiers shared by the Button and the Fields here
+            }
+            .padding(.horizontal, 8)
+            Button {
+                isPasswordVisible.toggle()
+            } label: {
+                Image(systemName: isPasswordVisible ? "eye.slash.fill" : "eye.fill")
+            }
+            .padding(.trailing, 8)
+        }
+        .frame(height: 44)
+        .frame(maxWidth: .infinity)
+        .background(Color.gray.opacity(0.4))
+        .cornerRadius(5)
+        .padding(.horizontal)
     }
 }
-
-
