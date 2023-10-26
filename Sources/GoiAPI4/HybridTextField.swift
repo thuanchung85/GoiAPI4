@@ -13,6 +13,11 @@ struct HybridTextField: View {
     @State var bkt:String
     
     @State var isSecure: Bool = false
+    
+    //biến ngăn user bấm nút eye khi mới lần đầu load page này
+    @State var ActiveEyeicon = false
+    
+    
     var titleKey: String
     var body: some View {
         HStack{
@@ -25,6 +30,7 @@ struct HybridTextField: View {
                             bkt = newValue
                             print("đen: bkt", bkt)
                             textHide = bkt
+                            ActiveEyeicon = true
                             }
                         .background(Color.gray)
                         .frame(width: 300, height: 200)
@@ -51,25 +57,28 @@ struct HybridTextField: View {
                 
             }.textFieldStyle(.roundedBorder)
                 .animation(.easeInOut(duration: 0.2), value: isSecure)
-            //Add any common modifiers here so they dont have to be repeated for each Field
-            Button(action: {
-                isSecure.toggle()
-                //nếu bấm isSecure == true
-                if (isSecure == true)
-                {
-                    textHide = text
-                }
-                //nếu bấm isSecure == false
-               else
-                {
-                   text = bkt
-               }
-                
-                
-                
-            }, label: {
-                Image(systemName: !isSecure ? "eye.slash" : "eye" )
-            })
+           
+            //nút này chỉ được kick hoạt khi user đã nhập cai gì đó vào text
+            if(ActiveEyeicon == true){
+                Button(action: {
+                    isSecure.toggle()
+                    //nếu bấm isSecure == true
+                    if (isSecure == true)
+                    {
+                        textHide = text
+                    }
+                    //nếu bấm isSecure == false
+                    else
+                    {
+                        text = bkt
+                    }
+                    
+                    
+                    
+                }, label: {
+                    Image(systemName: !isSecure ? "eye.slash" : "eye" )
+                })
+            }
         }//Add any modifiers shared by the Button and the Fields here
     }
 }
