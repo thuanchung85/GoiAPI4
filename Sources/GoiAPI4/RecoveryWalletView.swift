@@ -17,7 +17,7 @@ public struct RecoveryWalletView: View {
     }
     
     public var body: some View{
-        NavigationView {
+     
             //Choose View
             VStack(alignment: .center) {
                 Text("Recovery Your Wallet from 12 seed words").font(.title)
@@ -46,8 +46,7 @@ public struct RecoveryWalletView: View {
             }
             .padding(.bottom,10)
             
-        }
-        //
+       
     }
     
     
