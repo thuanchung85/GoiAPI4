@@ -23,7 +23,9 @@ public struct Re_GenerateWalletView: View {
                 //nếu chưa re generate  ví xong thì còn show hình mờ
                 if(isStillLoadingWallet == true){
                         LoadingView(addressWallet: $addressWallet,
-                                    isStillLoadingWallet: $isStillLoadingWallet, isShowing:  $isStillLoadingWallet)
+                                    isStillLoadingWallet: $isStillLoadingWallet,
+                                    string12SeedText : string12SeedText,
+                                    isShowing:  $isStillLoadingWallet)
                         {
                             //Choose View
                             VStack(alignment: .center) {

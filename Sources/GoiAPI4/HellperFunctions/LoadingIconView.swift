@@ -24,7 +24,7 @@ struct LoadingView<Content>: View where Content: View {
 
     @Binding var addressWallet: String
     @Binding var isStillLoadingWallet:Bool
-    
+    @State var string12SeedText:String
     @Binding var isShowing: Bool
     var content: () -> Content
 
@@ -55,7 +55,7 @@ struct LoadingView<Content>: View where Content: View {
                     
                     DispatchQueue.global().async {
                         let myWallet = Wallet()
-                        let recoverString = "salt multiply enemy burger exit machine apart science agree foot often absent buddy zoo comfort fantasy dune hip night pride reveal tide neither civil"
+                        let recoverString = self.string12SeedText
                         let HDWallet_1_recover_Data = myWallet.recover_HDWallet_BIP32_with12Words(with12Words: recoverString, newName: "KhoiPhuc_CHUNGWALLET")
                         
                        
