@@ -26,10 +26,7 @@ public struct RecoveryWalletView: View {
                    
                 HStack{
                     HybridTextField(text: $string12SeedText, titleKey: "Enter your 12 seeds separated by spaces")
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100)
-                        .foregroundColor(Color.white)
-                        .background(Color.gray)
-                        .cornerRadius(5)
+                       
                    
                   
                 }

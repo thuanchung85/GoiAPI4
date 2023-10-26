@@ -13,9 +13,16 @@ struct HybridTextField: View {
             Group{
                 if isSecure{
                     SecureField(titleKey, text: $text)
-                    
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100)
+                        .foregroundColor(Color.white)
+                        .background(Color.gray)
+                        .cornerRadius(5)
                 }else{
                     TextField(titleKey, text: $text)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100)
+                        .foregroundColor(Color.white)
+                        .background(Color.gray)
+                        .cornerRadius(5)
                 }
             }.textFieldStyle(.roundedBorder)
                 .animation(.easeInOut(duration: 0.2), value: isSecure)
