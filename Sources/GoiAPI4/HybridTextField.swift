@@ -56,7 +56,11 @@ struct HybridTextField: View {
                 {
                     textHide = text
                 }
-               
+                //nếu bấm isSecure == false
+               else
+                {
+                   text = bkt
+               }
                 
                 
                 
