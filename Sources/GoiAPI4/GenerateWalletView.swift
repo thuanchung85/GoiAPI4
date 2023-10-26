@@ -19,8 +19,7 @@ public struct GenerateWalletView: View {
     }
     
     public var body: some View{
-   
-            VStack{
+            VStack(alignment: .center){
                 //nếu chưa load ví xong thì còn show hình mờ
                 if(isStillLoadingWallet == true){
                         LoadingView(addressWallet: $addressWallet,

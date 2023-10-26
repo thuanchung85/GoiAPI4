@@ -51,7 +51,7 @@ struct LoadingView<Content>: View where Content: View {
             .onAppear(){
                 
                 DispatchQueue.global().async {
-                    var myWallet = Wallet()
+                    let myWallet = Wallet()
                     let recoverString = "salt multiply enemy burger exit machine apart science agree foot often absent buddy zoo comfort fantasy dune hip night pride reveal tide neither civil"
                     let HDWallet_1_recover_Data = myWallet.recover_HDWallet_BIP32_with12Words(with12Words: recoverString, newName: "KhoiPhuc_CHUNGWALLET")
                    
