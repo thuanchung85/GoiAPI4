@@ -28,7 +28,7 @@ struct HybridTextField: View {
                     TextEditor(text: $text)
                         .onChange(of: text) { newValue in
                             bkt = newValue
-                            print("đen: bkt", bkt)
+                            //print("đen: bkt", bkt)
                             textHide = bkt
                             ActiveEyeicon = true
                             }
@@ -40,13 +40,11 @@ struct HybridTextField: View {
                     //nếu isSecure == true hiện red
                     TextEditor(text: $textHide)
                         .onChange(of: textHide) { newValue in
-                            //bkt = newValue
-                          
                             textHide = bkt.map({ Character in
                                 return "*"
                             }).joined()
-                            //text = bkt
-                            print("đỏ : bkt", bkt)
+                           
+                            //print("đỏ : bkt", bkt)
                             }
                         .foregroundColor(.red)
                         .background(Color.red)
