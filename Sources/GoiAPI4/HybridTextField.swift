@@ -33,6 +33,10 @@ struct HybridTextField: View {
                 Image(systemName: !isSecure ? "eye.slash" : "eye" )
             })
         }//Add any modifiers shared by the Button and the Fields here
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100)
+        .foregroundColor(Color.white)
+        .background(Color.gray)
+        .cornerRadius(5)
     }
 }
 
