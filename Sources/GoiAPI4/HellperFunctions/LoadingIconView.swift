@@ -65,6 +65,7 @@ struct LoadingView<Content>: View where Content: View {
                     
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 
