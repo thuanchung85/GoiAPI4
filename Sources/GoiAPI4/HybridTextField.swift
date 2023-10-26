@@ -32,11 +32,14 @@ struct HybridTextField: View {
             Button(action: {
                 isSecure.toggle()
                 if(isSecure == true) {
-                    text = hideStringbyCharacter(text: bkt, isHide: true)
+                    //thay chuoi nhap = *
+                    text = text.map({ Character in
+                        return "*"
+                    }).joined()
                 }
                 else
                 {
-                    text = hideStringbyCharacter(text: bkt, isHide: false)
+                    text = bkt
                 }
             }, label: {
                 Image(systemName: !isSecure ? "eye.slash" : "eye" )
@@ -45,18 +48,5 @@ struct HybridTextField: View {
     }
 }
 
-func hideStringbyCharacter(text:String, isHide:Bool) -> String
-{
-    if(isHide == true){
-        let t = text.map { Character in
-            return "*"
-        }
-        return t.joined()
-    }
-    else
-    {
-        return text
-    }
-    
-}
+
 
