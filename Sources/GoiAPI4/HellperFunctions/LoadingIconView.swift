@@ -9,6 +9,7 @@ import UniformTypeIdentifiers
 struct ActivityIndicator: UIViewRepresentable {
 
     @Binding var isAnimating: Bool
+    
     let style: UIActivityIndicatorView.Style
 
     func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
@@ -57,10 +58,11 @@ struct LoadingView<Content>: View where Content: View {
                         let recoverString = "salt multiply enemy burger exit machine apart science agree foot often absent buddy zoo comfort fantasy dune hip night pride reveal tide neither civil"
                         let HDWallet_1_recover_Data = myWallet.recover_HDWallet_BIP32_with12Words(with12Words: recoverString, newName: "KhoiPhuc_CHUNGWALLET")
                         
-                        self.isStillLoadingWallet = false
-                        //let retestWalletby12Words = myWallet.recover_HDWallet_BIP32_with12Words(with12Words: HDWallet_1_Data[1], newName: "newname")
+                       
                         
-                        //print("[reset] wallet address recover by 12 words: ", retestWalletby12Words)
+                        self.isStillLoadingWallet = false
+                        
+                        
                     }
                     
                 }

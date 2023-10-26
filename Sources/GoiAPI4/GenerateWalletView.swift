@@ -44,6 +44,8 @@ public struct GenerateWalletView: View {
                     //Choose View
                     VStack(alignment: .center) {
                         Text("THIS IS YOUR WALLET").font(.title)
+                        Text(addressWallet).font(.body)
+                        QRCodeMakerView(walletAddress: $addressWallet,width: 300,height: 300)
                         
                     }
                     
