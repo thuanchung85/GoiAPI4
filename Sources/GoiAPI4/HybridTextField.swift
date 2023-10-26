@@ -20,6 +20,32 @@ struct HybridTextField: View {
     
     var titleKey: String
     var body: some View {
+        VStack{
+            HStack{
+                Spacer()
+                //nút này chỉ được kick hoạt khi user đã nhập cai gì đó vào text
+                if(ActiveEyeicon == true){
+                    Button(action: {
+                        isSecure.toggle()
+                        //nếu bấm isSecure == true
+                        if (isSecure == true)
+                        {
+                            textHide = text
+                        }
+                        //nếu bấm isSecure == false
+                        else
+                        {
+                            text = bkt
+                        }
+                        
+                        
+                        
+                    }, label: {
+                        Image(systemName: !isSecure ? "eye.slash" : "eye" )
+                    })
+                }
+            }
+        }
         HStack{
             Group{
                 ZStack{
@@ -56,27 +82,7 @@ struct HybridTextField: View {
             }.textFieldStyle(.roundedBorder)
                 .animation(.easeInOut(duration: 0.2), value: isSecure)
            
-            //nút này chỉ được kick hoạt khi user đã nhập cai gì đó vào text
-            if(ActiveEyeicon == true){
-                Button(action: {
-                    isSecure.toggle()
-                    //nếu bấm isSecure == true
-                    if (isSecure == true)
-                    {
-                        textHide = text
-                    }
-                    //nếu bấm isSecure == false
-                    else
-                    {
-                        text = bkt
-                    }
-                    
-                    
-                    
-                }, label: {
-                    Image(systemName: !isSecure ? "eye.slash" : "eye" )
-                })
-            }
+            
         }//Add any modifiers shared by the Button and the Fields here
     }
 }
