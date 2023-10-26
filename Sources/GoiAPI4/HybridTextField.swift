@@ -19,7 +19,7 @@ struct HybridTextField: View {
                 }
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100)
-            .foregroundColor(Color.white)
+            .foregroundColor(Color.blue)
             .background(Color.gray)
             .cornerRadius(5)
             .textFieldStyle(.roundedBorder)
