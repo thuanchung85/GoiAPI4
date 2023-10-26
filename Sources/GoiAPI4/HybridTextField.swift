@@ -22,7 +22,7 @@ struct HybridTextField: View {
                     TextEditor(text: $text)
                         .onChange(of: text) { newValue in
                             bkt = newValue
-                            textHide = bkt
+                            //textHide = bkt
                             }
                         .background(Color.gray)
                         .frame(width: 300, height: 200)
