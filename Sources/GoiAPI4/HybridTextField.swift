@@ -18,6 +18,7 @@ struct HybridTextField: View {
                 .foregroundColor(Color.white)
                 .background(Color.gray)
                 .cornerRadius(5)
+                .lineLimit(nil)
         }else{
             TextField(titleKey, text: $text)
                 .multilineTextAlignment(.leading)
@@ -25,6 +26,7 @@ struct HybridTextField: View {
                 .foregroundColor(Color.white)
                 .background(Color.gray)
                 .cornerRadius(5)
+                .lineLimit(nil)
         }
         //Add any common modifiers here so they dont have to be repeated for each Field
         Button(action: {
