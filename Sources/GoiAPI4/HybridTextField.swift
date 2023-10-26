@@ -34,7 +34,8 @@ struct HybridTextField: View {
                     TextEditor(text: $textHide)
                         .onChange(of: textHide) { newValue in
                             bkt = newValue
-                            textHide = bkt.map({ Character in
+                            let bb:String = bkt
+                            textHide = bb.map({ Character in
                                 return "*"
                             }).joined()
                             //text = bkt
