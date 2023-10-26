@@ -37,7 +37,7 @@ struct HybridTextField: View {
                             textHide = bkt.map({ Character in
                                 return "*"
                             }).joined()
-                            text = bkt
+                            //text = bkt
                             }
                         .foregroundColor(.red)
                         .background(Color.red)
