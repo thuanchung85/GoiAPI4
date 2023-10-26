@@ -22,6 +22,7 @@ struct HybridTextField: View {
                     TextEditor(text: $text)
                         .onChange(of: text) { newValue in
                             bkt = newValue
+                            textHide = bkt
                             }
                         .background(Color.gray)
                         .frame(width: 300, height: 200)
@@ -34,6 +35,7 @@ struct HybridTextField: View {
                             textHide = bkt.map({ Character in
                                 return "*"
                             }).joined()
+                            text = bkt
                             }
                         .foregroundColor(.red)
                         .background(Color.red)
