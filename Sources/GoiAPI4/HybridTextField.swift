@@ -19,6 +19,7 @@ struct HybridTextField: View {
             Group{
                 ZStack{
                     
+                    //nếu isSecure == false hiện đen
                     TextEditor(text: $text)
                         .onChange(of: text) { newValue in
                             bkt = newValue
@@ -29,6 +30,7 @@ struct HybridTextField: View {
                         .border(Color.black, width: 1)
                         .opacity(isSecure ? 0:1)
                     
+                    //nếu isSecure == true hiện red
                     TextEditor(text: $textHide)
                         .onChange(of: textHide) { newValue in
                             bkt = newValue
@@ -49,7 +51,11 @@ struct HybridTextField: View {
             //Add any common modifiers here so they dont have to be repeated for each Field
             Button(action: {
                 isSecure.toggle()
-                
+                //nếu bấm isSecure == true
+                if (isSecure == true)
+                {
+                    textHide = text
+                }
                
                 
                 
