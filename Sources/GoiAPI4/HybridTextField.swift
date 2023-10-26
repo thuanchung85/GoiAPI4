@@ -20,7 +20,10 @@ struct HybridTextField: View {
                             bkt = newValue
                                             
                             }
-                     
+                        .background(Color.gray)
+                        .frame(width: 300, height: 200)
+                        .border(Color.black, width: 1)
+                                       
                 }
                 
             }.textFieldStyle(.roundedBorder)
@@ -29,11 +32,11 @@ struct HybridTextField: View {
             Button(action: {
                 isSecure.toggle()
                 if(isSecure == true) {
-                    text = hideStringbyCharacter(text: text, isHide: true)
+                    text = hideStringbyCharacter(text: bkt, isHide: true)
                 }
                 else
                 {
-                    text = hideStringbyCharacter(text: text, isHide: false)
+                    text = hideStringbyCharacter(text: bkt, isHide: false)
                 }
             }, label: {
                 Image(systemName: !isSecure ? "eye.slash" : "eye" )
