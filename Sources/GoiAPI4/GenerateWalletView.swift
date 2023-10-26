@@ -19,7 +19,7 @@ public struct GenerateWalletView: View {
     }
     
     public var body: some View{
-        NavigationView {
+   
             VStack{
                 //nếu chưa load ví xong thì còn show hình mờ
                 if(isStillLoadingWallet == true){
@@ -51,7 +51,7 @@ public struct GenerateWalletView: View {
                 }
                 
             }
-        }//end navigation view
+       
           
     }//end body
     
