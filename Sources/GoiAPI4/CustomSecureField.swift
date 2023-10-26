@@ -22,7 +22,7 @@ struct CustomSecureField: View {
                 
                 ZStack {
                     TextEditor(text: $password)
-                    .frame(maxHeight: .infinity)
+                    .frame(height: 200)
                     .opacity(isPasswordVisible ? 1 : 0)
                     
                     SecureField("",
@@ -30,6 +30,7 @@ struct CustomSecureField: View {
                     .frame(maxHeight: .infinity)
                     .opacity(isPasswordVisible ? 0 : 1)
                 }
+                
             }
             .padding(.horizontal, 8)
             Button {
