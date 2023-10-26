@@ -31,10 +31,9 @@ public struct GenerateWalletView: View {
                                 Spacer()
                                 HStack(alignment: .center){
                                     Text("THIS IS YOUR WALLET").font(.title)
+                                        .padding(.horizontal)
                                 }.padding(.bottom,30)
-                                Rectangle()
-                                    .fill(.gray)
-                                    .frame(width: 250, height: 250)
+                               
                                 Spacer()
                             }
                             
