@@ -25,7 +25,7 @@ public struct RecoveryWalletView: View {
                 Text("Secret Recovery Words")
                    
                 HStack{
-                    CustomSecureField(password: $string12SeedText)
+                    HybridTextField(text: $string12SeedText, titleKey: "Enter your 12 seeds separated by spaces")
                        
                    
                   
