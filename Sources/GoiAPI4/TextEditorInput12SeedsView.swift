@@ -3,8 +3,10 @@ import CoreImage.CIFilterBuiltins
 import Foundation
 import SwiftUI
 import UniformTypeIdentifiers
+
 ///Contains all the code for the Secure and regular TextFields
-struct HybridTextField: View {
+struct TextEditorInput12SeedsView: View {
+    @Binding var isPassInput12Seed: Bool
     @Binding var text: String
     
     
@@ -35,6 +37,10 @@ struct HybridTextField: View {
                                 //print("đen: bkt", bkt)
                                 textHide = bkt
                                 ActiveEyeicon = true
+                                
+                                if(text.count >= 12){
+                                    isPassInput12Seed = true
+                                }
                                 }
                             .background(Color.gray)
                             .frame(width: 300, height: 200)

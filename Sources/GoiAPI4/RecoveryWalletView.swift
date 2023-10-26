@@ -10,7 +10,7 @@ public struct RecoveryWalletView: View {
   
    
     @State var string12SeedText = ""
-   
+   @State var isPassInput12Seed = false
     
     public init() {
         
@@ -26,24 +26,22 @@ public struct RecoveryWalletView: View {
                 
                 //text editor cho phep user nhập 12 từ và che dấu khi cần
                 HStack{
-                    HybridTextField(text: $string12SeedText, textHide: "", bkt: "", titleKey: "Enter your 12 seeds separated by spaces")
+                    TextEditorInput12SeedsView(isPassInput12Seed: $isPassInput12Seed,text: $string12SeedText, textHide: "", bkt: "", titleKey: "Enter your 12 seeds separated by spaces")
                        
                 }
                
-                //nut next
-                Button(action: {
-                   
-                    
-                }) {
-                    VStack {
-                        Text("RECOVER WALLET").foregroundColor(Color.red)
+                //nut next tơi view tiếp theo genegate lại ví củ theo 12 từ
+                //===nút đi tới recovery wallet view của gói API 4===//
+                if(isPassInput12Seed == true){
+                    NavigationLink(destination:  GenerateWalletView())
+                    {
+                        Text("Get Wallet")
+                            .foregroundColor(.white)
+                            .padding(12)
+                        
                     }
-                    .padding()
-                    .accentColor(Color(.red))
-                    .cornerRadius(4.0)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 4).stroke(Color(.systemBlue), lineWidth: 2)
-                    )
+                    .background(Color.black)
+                    .cornerRadius(12)
                 }
             }
             .padding(.bottom,10)
