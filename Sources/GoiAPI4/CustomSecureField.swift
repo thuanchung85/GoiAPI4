@@ -21,8 +21,7 @@ struct CustomSecureField: View {
                 }
                 
                 ZStack {
-                    TextField("",
-                              text: $password)
+                    TextEditor(text: $password)
                     .frame(maxHeight: .infinity)
                     .opacity(isPasswordVisible ? 1 : 0)
                     
