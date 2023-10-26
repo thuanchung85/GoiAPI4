@@ -29,7 +29,7 @@ struct LoadingView<Content>: View where Content: View {
 
     var body: some View {
         GeometryReader { geometry in
-            VStack {
+            VStack(alignment: .center) {
                 ZStack(alignment: .center) {
                     
                     self.content()
