@@ -8,7 +8,7 @@ import UniformTypeIdentifiers
 public struct RecoveryWalletView: View {
    
   
-    @State var isShowOrHideTextOf12Seed  = true
+    @State var isShowOrHideTextOf12Seed  = false
     @State var string12SeedText = ""
     public init() {
         
@@ -28,14 +28,14 @@ public struct RecoveryWalletView: View {
                         
                     }) {
                         VStack {
-                            Text(isShowOrHideTextOf12Seed ? "Show" : "Hide")
+                            Text(isShowOrHideTextOf12Seed ? "Hide" : "Show")
                         }
                         .padding()
                         .accentColor(Color(.systemBlue))
                     }
                 }
                 HStack{
-                    if isShowOrHideTextOf12Seed {
+                    if isShowOrHideTextOf12Seed == true {
                         TextField("Enter your 12 seeds separated by spaces", text: $string12SeedText)
                             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100)
                             .foregroundColor(Color.white)
