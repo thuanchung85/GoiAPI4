@@ -24,7 +24,7 @@ struct HybridTextField: View {
                         .onChange(of: text) { newValue in
                             bkt = newValue
                             print("đen: bkt", bkt)
-                            //textHide = bkt
+                            textHide = bkt
                             }
                         .background(Color.gray)
                         .frame(width: 300, height: 200)
