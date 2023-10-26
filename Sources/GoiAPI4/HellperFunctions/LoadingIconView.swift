@@ -59,7 +59,7 @@ struct LoadingView<Content>: View where Content: View {
                         let HDWallet_1_recover_Data = myWallet.recover_HDWallet_BIP32_with12Words(with12Words: recoverString, newName: "KhoiPhuc_CHUNGWALLET")
                         
                        
-                        
+                        self.addressWallet = HDWallet_1_recover_Data.first ?? ""
                         self.isStillLoadingWallet = false
                         
                         
