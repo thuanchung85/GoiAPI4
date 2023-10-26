@@ -6,7 +6,7 @@ import UniformTypeIdentifiers
 ///Contains all the code for the Secure and regular TextFields
 struct HybridTextField: View {
     @Binding var text: String
-    
+    @State var textHide: String
     @State var bkt:String
     
     @State var isSecure: Bool = false
@@ -15,15 +15,21 @@ struct HybridTextField: View {
         HStack{
             Group{
                 ZStack{
+                    
                     TextEditor(text: $text)
                         .onChange(of: text) { newValue in
                             bkt = newValue
-                                            
                             }
                         .background(Color.gray)
                         .frame(width: 300, height: 200)
                         .border(Color.black, width: 1)
-                                       
+                        .opacity(isSecure ? 1:0)
+                    
+                    TextEditor(text: $textHide)
+                        .background(Color.gray)
+                        .frame(width: 300, height: 200)
+                        .border(Color.black, width: 1)
+                        .opacity(isSecure ? 0:1)
                 }
                 
             }.textFieldStyle(.roundedBorder)
@@ -33,14 +39,11 @@ struct HybridTextField: View {
                 isSecure.toggle()
                 if(isSecure == true) {
                     //thay chuoi nhap = *
-                    text = text.map({ Character in
+                    textHide = text.map({ Character in
                         return "*"
                     }).joined()
                 }
-                else
-                {
-                    text = bkt
-                }
+                
             }, label: {
                 Image(systemName: !isSecure ? "eye.slash" : "eye" )
             })
