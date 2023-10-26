@@ -11,12 +11,15 @@ struct HybridTextField: View {
     var body: some View {
         HStack{
             Group{
-               
+                ZStack{
                     SecureField(titleKey, text: $text)
                         .opacity(isSecure ? 1:0)
-               
+                    
                     TextEditor(text: $text)
                         .opacity(isSecure ? 0:1)
+                        .background(Color.gray)
+                        .foregroundColor(Color.blue)
+                }
                 
             }.textFieldStyle(.roundedBorder)
                 .animation(.easeInOut(duration: 0.2), value: isSecure)
