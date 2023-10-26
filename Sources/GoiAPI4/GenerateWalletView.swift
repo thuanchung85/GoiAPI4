@@ -27,7 +27,7 @@ public struct GenerateWalletView: View {
                         {
                             //Choose View
                             VStack(alignment: .center) {
-                                Spacer()
+                               
                                 HStack(alignment: .center){
                                     Text("THIS IS YOUR WALLET").font(.title)
                                         .padding(.horizontal)
