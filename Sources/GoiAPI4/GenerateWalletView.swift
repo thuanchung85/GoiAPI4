@@ -20,32 +20,33 @@ public struct GenerateWalletView: View {
     
     public var body: some View{
         NavigationView {
-            if(isStillLoadingWallet == true){
-                LoadingView(addressWallet: $addressWallet,
-                            isStillLoadingWallet: $isStillLoadingWallet, isShowing:  $isStillLoadingWallet)
-                {
+            VStack{
+                if(isStillLoadingWallet == true){
+                    LoadingView(addressWallet: $addressWallet,
+                                isStillLoadingWallet: $isStillLoadingWallet, isShowing:  $isStillLoadingWallet)
+                    {
+                        //Choose View
+                        VStack(alignment: .center) {
+                            Text("THIS IS YOUR WALLET").font(.title)
+                        }
+                        
+                    }
+                    
+                }
+                //nếu load 12 từ xong thì show ra 12 từ đó, và chuẫn bị view "cho user nhập lại 12 từ"
+                else{
                     //Choose View
                     VStack(alignment: .center) {
                         Text("THIS IS YOUR WALLET").font(.title)
-                    }
                         
-                }
-                
-            }
-            //nếu load 12 từ xong thì show ra 12 từ đó, và chuẫn bị view "cho user nhập lại 12 từ"
-            else{
-                //Choose View
-                VStack(alignment: .center) {
-                    Text("THIS IS YOUR WALLET").font(.title)
+                    }
                     
                 }
                 
             }
-        }
-           
-        
-        //
-    }
+        }//end navigation view
+          
+    }//end body
     
     
     
