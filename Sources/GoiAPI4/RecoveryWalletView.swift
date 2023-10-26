@@ -36,7 +36,7 @@ public struct RecoveryWalletView: View {
                     
                 }) {
                     VStack {
-                        Text("NEXT").foregroundColor(Color.red)
+                        Text("RECOVER WALLET").foregroundColor(Color.red)
                     }
                     .padding()
                     .accentColor(Color(.red))
