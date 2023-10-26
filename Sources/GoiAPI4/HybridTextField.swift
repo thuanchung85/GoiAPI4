@@ -21,6 +21,49 @@ struct HybridTextField: View {
     var titleKey: String
     var body: some View {
         VStack{
+            
+            
+            //chổ nhập 12 từ
+            HStack{
+                Group{
+                    ZStack{
+                        
+                        //nếu isSecure == false hiện đen
+                        TextEditor(text: $text)
+                            .onChange(of: text) { newValue in
+                                bkt = newValue
+                                //print("đen: bkt", bkt)
+                                textHide = bkt
+                                ActiveEyeicon = true
+                                }
+                            .background(Color.gray)
+                            .frame(width: 300, height: 200)
+                            .border(Color.black, width: 1)
+                            .opacity(isSecure ? 0:1)
+                        
+                        //nếu isSecure == true hiện red
+                        TextEditor(text: $textHide)
+                            .onChange(of: textHide) { newValue in
+                                textHide = bkt.map({ Character in
+                                    return "*"
+                                }).joined()
+                               
+                                //print("đỏ : bkt", bkt)
+                                }
+                            .foregroundColor(.red)
+                            .background(Color.red)
+                            .frame(width: 300, height: 200)
+                            .border(Color.red, width: 1)
+                            .opacity(isSecure ? 1:0)
+                    }
+                    
+                }.textFieldStyle(.roundedBorder)
+                    .animation(.easeInOut(duration: 0.2), value: isSecure)
+               
+                
+            }
+            
+            //nut show hide từ
             HStack{
                 Spacer()
                 //nút này chỉ được kick hoạt khi user đã nhập cai gì đó vào text
@@ -46,44 +89,7 @@ struct HybridTextField: View {
                 }
             }
         }
-        HStack{
-            Group{
-                ZStack{
-                    
-                    //nếu isSecure == false hiện đen
-                    TextEditor(text: $text)
-                        .onChange(of: text) { newValue in
-                            bkt = newValue
-                            //print("đen: bkt", bkt)
-                            textHide = bkt
-                            ActiveEyeicon = true
-                            }
-                        .background(Color.gray)
-                        .frame(width: 300, height: 200)
-                        .border(Color.black, width: 1)
-                        .opacity(isSecure ? 0:1)
-                    
-                    //nếu isSecure == true hiện red
-                    TextEditor(text: $textHide)
-                        .onChange(of: textHide) { newValue in
-                            textHide = bkt.map({ Character in
-                                return "*"
-                            }).joined()
-                           
-                            //print("đỏ : bkt", bkt)
-                            }
-                        .foregroundColor(.red)
-                        .background(Color.red)
-                        .frame(width: 300, height: 200)
-                        .border(Color.red, width: 1)
-                        .opacity(isSecure ? 1:0)
-                }
-                
-            }.textFieldStyle(.roundedBorder)
-                .animation(.easeInOut(duration: 0.2), value: isSecure)
-           
-            
-        }//Add any modifiers shared by the Button and the Fields here
+       
     }
 }
 
