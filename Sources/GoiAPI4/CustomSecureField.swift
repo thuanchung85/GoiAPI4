@@ -23,18 +23,12 @@ struct CustomSecureField: View {
                 ZStack {
                     TextField("",
                               text: $password)
-                    .multilineTextAlignment(.trailing)
-                    .frame(minWidth: 80, idealWidth: .infinity)
-                    .fixedSize(horizontal: true, vertical: false)
-                    .border(Color.black)
+                    .frame(maxHeight: .infinity)
                     .opacity(isPasswordVisible ? 1 : 0)
                     
                     SecureField("",
                                 text: $password)
-                    .multilineTextAlignment(.trailing)
-                    .frame(minWidth: 80, idealWidth: .infinity)
-                    .fixedSize(horizontal: true, vertical: false)
-                    .border(Color.black)
+                    .frame(maxHeight: .infinity)
                     .opacity(isPasswordVisible ? 0 : 1)
                 }
             }
