@@ -35,10 +35,20 @@ public struct RecoveryWalletView: View {
                     }
                 }
                 HStack{
-                    TextField("Enter your 12 seeds separated by spaces", text: $string12SeedText)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100)
-                        .foregroundColor(Color.white)
-                        .background(Color.gray)
+                    if isShowOrHideTextOf12Seed {
+                        TextField("Enter your 12 seeds separated by spaces", text: $string12SeedText)
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100)
+                            .foregroundColor(Color.white)
+                            .background(Color.gray)
+                            .cornerRadius(5)
+                    } else {
+                        SecureField("Enter your 12 seeds separated by spaces", text: $string12SeedText)
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100)
+                            .foregroundColor(Color.white)
+                            .background(Color.gray)
+                            .cornerRadius(5)
+                    }
+                  
                 }
                
             }
