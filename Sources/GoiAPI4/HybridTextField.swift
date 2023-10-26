@@ -11,13 +11,13 @@ struct HybridTextField: View {
     var body: some View {
         HStack{
             Group{
-                if isSecure{
+               
                     SecureField(titleKey, text: $text)
-                    
-                }else{
+                        .opacity(isSecure ? 1:0)
+               
                     TextEditor(text: $text)
-                   
-                }
+                        .opacity(isSecure ? 1:0)
+                
             }.textFieldStyle(.roundedBorder)
                 .animation(.easeInOut(duration: 0.2), value: isSecure)
             //Add any common modifiers here so they dont have to be repeated for each Field
