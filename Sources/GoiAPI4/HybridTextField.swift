@@ -34,7 +34,7 @@ struct HybridTextField: View {
                     //nếu isSecure == true hiện red
                     TextEditor(text: $textHide)
                         .onChange(of: textHide) { newValue in
-                            bkt = newValue
+                            //bkt = newValue
                           
                             textHide = bkt.map({ Character in
                                 return "*"
