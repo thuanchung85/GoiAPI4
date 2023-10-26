@@ -22,16 +22,17 @@ public struct GenerateWalletView: View {
         NavigationView {
             VStack{
                 if(isStillLoadingWallet == true){
-                    LoadingView(addressWallet: $addressWallet,
-                                isStillLoadingWallet: $isStillLoadingWallet, isShowing:  $isStillLoadingWallet)
-                    {
-                        //Choose View
-                        VStack(alignment: .center) {
-                            Text("THIS IS YOUR WALLET").font(.title)
+                    VStack(alignment: .center){
+                        LoadingView(addressWallet: $addressWallet,
+                                    isStillLoadingWallet: $isStillLoadingWallet, isShowing:  $isStillLoadingWallet)
+                        {
+                            //Choose View
+                            VStack(alignment: .center) {
+                                Text("THIS IS YOUR WALLET").font(.title)
+                            }
+                            
                         }
-                        
                     }
-                    
                 }
                 //nếu load 12 từ xong thì show ra 12 từ đó, và chuẫn bị view "cho user nhập lại 12 từ"
                 else{
