@@ -15,7 +15,8 @@ struct HybridTextField: View {
                     SecureField(titleKey, text: $text)
                     
                 }else{
-                    TextField(titleKey, text: $text)
+                    TextEditor(text: $text)
+                   
                 }
             }.textFieldStyle(.roundedBorder)
                 .animation(.easeInOut(duration: 0.2), value: isSecure)
