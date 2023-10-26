@@ -14,7 +14,7 @@ struct HybridTextField: View {
     
     @State var isSecure: Bool = false
     
-    //biến ngăn user bấm nút eye khi mới lần đầu load page này
+    //biến ngăn user bấm nút eye khi mới lần đầu load page này để không cho user lần đầu vào đã vào hide text
     @State var ActiveEyeicon = false
     
     
