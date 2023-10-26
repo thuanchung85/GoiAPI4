@@ -16,7 +16,7 @@ struct HybridTextField: View {
                         .opacity(isSecure ? 1:0)
                
                     TextEditor(text: $text)
-                        .opacity(isSecure ? 1:0)
+                        .opacity(isSecure ? 0:1)
                 
             }.textFieldStyle(.roundedBorder)
                 .animation(.easeInOut(duration: 0.2), value: isSecure)
