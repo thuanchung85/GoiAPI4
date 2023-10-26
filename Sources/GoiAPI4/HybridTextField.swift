@@ -26,9 +26,9 @@ struct HybridTextField: View {
                         .opacity(isSecure ? 1:0)
                     
                     TextEditor(text: $textHide)
-                        .background(Color.gray)
+                        .background(Color.red)
                         .frame(width: 300, height: 200)
-                        .border(Color.black, width: 1)
+                        .border(Color.red, width: 1)
                         .opacity(isSecure ? 0:1)
                 }
                 
