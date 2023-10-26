@@ -34,7 +34,7 @@ struct LoadingView<Content>: View where Content: View {
                 self.content()
                     .disabled(self.isShowing)
                     .blur(radius: self.isShowing ? 3 : 0)
-
+                    .padding(.horizontal)
                 VStack {
                     Text("Making Wallet...")
                     ActivityIndicator(isAnimating: .constant(true), style: .large)
@@ -45,6 +45,7 @@ struct LoadingView<Content>: View where Content: View {
                 .foregroundColor(Color.primary)
                 .cornerRadius(20)
                 .opacity(self.isShowing ? 1 : 0)
+                .padding(.horizontal)
 
             }
             //genegater 12 từ
