@@ -9,7 +9,7 @@ struct HybridTextField: View {
     
     @State var bkt:String
     
-    @State var isSecure: Bool = true
+    @State var isSecure: Bool = false
     var titleKey: String
     var body: some View {
         HStack{
