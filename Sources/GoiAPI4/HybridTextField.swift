@@ -13,25 +13,26 @@ struct HybridTextField: View {
         
         if isSecure{
             SecureField(titleKey, text: $text)
+                .multilineTextAlignment(.leading)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100)
                 .foregroundColor(Color.white)
                 .background(Color.gray)
                 .cornerRadius(5)
         }else{
             TextField(titleKey, text: $text)
+                .multilineTextAlignment(.leading)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100)
                 .foregroundColor(Color.white)
                 .background(Color.gray)
                 .cornerRadius(5)
-            
-            //Add any common modifiers here so they dont have to be repeated for each Field
-            Button(action: {
-                isSecure.toggle()
-            }, label: {
-                Image(systemName: !isSecure ? "eye.slash" : "eye" )
-            })
-            
         }
+        //Add any common modifiers here so they dont have to be repeated for each Field
+        Button(action: {
+            isSecure.toggle()
+        }, label: {
+            Image(systemName: !isSecure ? "eye.slash" : "eye" )
+        })
+        
     }
 }
 
