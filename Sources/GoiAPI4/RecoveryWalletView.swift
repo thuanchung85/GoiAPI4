@@ -26,8 +26,8 @@ public struct RecoveryWalletView: View {
                 
                 //text editor cho phep user nhập 12 từ và che dấu khi cần
                 HStack{
-                    TextEditorInput12SeedsView(isPassInput12Seed: $isPassInput12Seed,text: $string12SeedText, textHide: "", bkt: "", titleKey: "Enter your 12 seeds separated by spaces")
-                       
+                    //TextEditorInput12SeedsView(isPassInput12Seed: $isPassInput12Seed,text: $string12SeedText, textHide: "", bkt: "", titleKey: "Enter your 12 seeds separated by spaces")
+                    SecureInputView("Enter your 12 seeds separated by spaces", text:  $string12SeedText)
                 }
                
                 //nut next tơi view tiếp theo genegate lại ví củ theo 12 từ
