@@ -67,10 +67,10 @@ struct QR_ScannerView: View {
         }
         .onAppear(perform:  checkCameraPermission)
         .onChange(of: qrOutputDelegate.scannerCode) { newValue in
-            if let code = newValue {
-                self.scannerCode = code
+          
+                self.scannerCode = newValue
                 session.stopRunning()
-            }
+            
         }
     }//end body
     
