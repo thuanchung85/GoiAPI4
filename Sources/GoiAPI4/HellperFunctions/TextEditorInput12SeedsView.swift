@@ -133,7 +133,7 @@ func traRaChuoi(data12Words:[String], text:String)->[String]
         let  combin2Array = Array(zip(data12Words, arrT))
         let arrR = combin2Array.map { (String1, String2) in
             print("\(String1) +___+ \(String2)")
-            return String1
+            return String2
         }
         return arrR
     }
