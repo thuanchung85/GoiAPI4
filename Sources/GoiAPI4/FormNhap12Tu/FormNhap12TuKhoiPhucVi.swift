@@ -5,7 +5,7 @@ import Foundation
 import SwiftUI
 import UniformTypeIdentifiers
 
-public struct FormNhap12Tu: View {
+public struct FormNhap12TuKhoiPhucVi: View {
    
   
    
