@@ -35,7 +35,7 @@ struct QR_ScannerView: View {
             GeometryReader{
                 let size = $0.size
                 ZStack{
-                    CameraView(frameSize: size, session: $session)
+                    CameraView(frameSize: CGSize(width: size.width, height: size.height), session: $session)
                     
                     ForEach(0...4, id: \.self){ index in
                         let rotation = Double(index) * 90
@@ -103,7 +103,10 @@ struct QR_ScannerView: View {
             qrOutput.metadataObjectTypes = [.qr]
             qrOutput.setMetadataObjectsDelegate(qrOutputDelegate, queue: .main)
             session.commitConfiguration()
-            session.startRunning()
+            DispatchQueue.global(qos: .background).async {
+                session.startRunning()
+            }
+           
         }
         catch{
             print("error when setup camera")
