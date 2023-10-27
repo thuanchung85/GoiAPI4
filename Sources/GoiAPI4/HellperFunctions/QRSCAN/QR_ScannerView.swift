@@ -17,7 +17,7 @@ struct QR_ScannerView: View {
     @State var errorMessage: String = ""
     @State var showError:Bool = false
     
-    @State var qrOutputDelegate = QRScannerDelegate()
+    @StateObject var qrOutputDelegate = QRScannerDelegate()
     
     @State var scannerCode = ""
     
