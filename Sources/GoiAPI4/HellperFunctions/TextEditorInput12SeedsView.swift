@@ -132,7 +132,7 @@ struct TextEditorInput12SeedsView: View {
 func traRaChuoi(data12Words:[String], text:String)->[String]
 {
     let arrT  = text.components(separatedBy: " ")
-    if(arrT.count<12){
+    if(arrT.count<=12){
         let  combin2Array = Array(zip(data12Words, arrT))
         let arrRWithIndex = combin2Array.enumerated()
         let arrX = arrRWithIndex.map({ eO in
