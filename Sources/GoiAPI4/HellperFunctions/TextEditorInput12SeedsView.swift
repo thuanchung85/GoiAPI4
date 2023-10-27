@@ -141,7 +141,8 @@ struct TextEditorInput12SeedsView: View {
 
 func traRaChuoi(data12Words:[String], text:String)->[String]
 {
-    let arrT  = text.components(separatedBy: " ")
+    var arrT  = text.components(separatedBy: " ")
+    if(arrT.last == "") {arrT.removeLast()}
     if(arrT.count<=12){
         let  combin2Array = Array(zip(data12Words, arrT))
         let arrRWithIndex = combin2Array.enumerated()
@@ -151,24 +152,7 @@ func traRaChuoi(data12Words:[String], text:String)->[String]
         
         return arrX
     }
-    else{
-        //trường hợp user chỉ vô tình nhập 1 từ space thì vẫn ok
-        if(arrT.count == 13){
-            if (arrT.last == "")
-            {
-                let  combin2Array = Array(zip(data12Words, arrT))
-                let arrRWithIndex = combin2Array.enumerated()
-                let arrX = arrRWithIndex.map({ eO in
-                    return "\(eO.offset + 1). " + eO.element.1
-                })
-                
-                return arrX
-            }
-            else{
-                return ["You input over 12 words, please check again!"]
-            }
-        }
-    }
+   
     return ["You input over 12 words, please check again!"]
 }
 
