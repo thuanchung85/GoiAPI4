@@ -14,10 +14,13 @@ public struct TaoLaiWalletTu12SeedView: View {
    
     @State var isStillLoadingWallet = true
     
+    
+    //===INIT==//
     public init(string12SeedText:Binding<String>) {
         self._string12SeedText = string12SeedText
     }
     
+    //==BODY==//
     public var body: some View{
             VStack(alignment: .center){
                 //nếu chưa re generate  ví xong thì còn show hình mờ
@@ -49,7 +52,7 @@ public struct TaoLaiWalletTu12SeedView: View {
                         QRCodeMakerView(walletAddress: $addressWallet,width: 300,height: 300)
                         
                         //nut next để enter name mới và passcode
-                        NavigationLink(destination:  FormEnterNamePassCodeView())
+                        NavigationLink(destination:  FormEnterNewNameVaPassCode())
                         {
                             Text("NEXT")
                                 .foregroundColor(.white)
