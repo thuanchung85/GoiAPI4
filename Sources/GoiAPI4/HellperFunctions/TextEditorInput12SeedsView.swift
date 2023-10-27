@@ -85,12 +85,18 @@ struct TextEditorInput12SeedsView: View {
             
             //nut show hide từ và //nut gọi QR scan
             HStack{
-                Button(action: {
-                   //mở QR scanner View
-                    
-                }, label: {
+                //nut đi tới màn hình scan QR
+                NavigationLink(destination:   QR_ScannerView())
+                {
                     Text("Scan QR code")
-                })
+                        .foregroundColor(.white)
+                        .padding(12)
+                    
+                }
+                .background(Color.black)
+                .cornerRadius(12)
+                
+               
                 Spacer()
                 //nút này chỉ được kick hoạt khi user đã nhập cai gì đó vào text
                 if(ActiveEyeicon == true){
