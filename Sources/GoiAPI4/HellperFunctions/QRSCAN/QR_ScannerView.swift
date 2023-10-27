@@ -18,6 +18,9 @@ struct QR_ScannerView: View {
     @State var showError:Bool = false
     
     @State var qrOutputDelegate = QRScannerDelegate()
+    
+    @State var scannerCode = ""
+    
     //===BODY==//
     var body: some View {
         VStack(spacing: 8){
@@ -63,6 +66,12 @@ struct QR_ScannerView: View {
             Alert(title: Text("QR SCAN ERROR"))
         }
         .onAppear(perform:  checkCameraPermission)
+        .onChange(of: qrOutputDelegate.scannerCode) { newValue in
+            if let code = newValue {
+                self.scannerCode = code
+                session.stopRunning()
+            }
+        }
     }//end body
     
     //====hàm check quyền truy câp camera====/
