@@ -116,6 +116,9 @@ struct TextEditorInput12SeedsView: View {
                             .padding()
                             .border(!isSecure ? .blue:.red)
                             .cornerRadius(5)
+                            .lineLimit(1)
+                            .scaledToFit()
+                            .minimumScaleFactor(0.01)
                         
                     }
                 }
@@ -131,11 +134,19 @@ func traRaChuoi(data12Words:[String], text:String)->[String]
     let arrT  = text.components(separatedBy: " ")
     if(arrT.count<12){
         let  combin2Array = Array(zip(data12Words, arrT))
-        let arrR = combin2Array.map { (String1, String2) in
-            print("\(String1) +___+ \(String2)")
-            return String2
-        }
-        return arrR
+        let arrRWithIndex = combin2Array.enumerated()
+        let arrX = arrRWithIndex.map({ eO in
+            return "\(eO.offset)" + eO.element.1
+        })
+        
+        
+        
+        //{ (String1, String2) in
+            //print("\(String1) +___+ \(String2)")
+            //return String2
+        //}
+        
+        return arrX
     }
     return data12Words
 }
