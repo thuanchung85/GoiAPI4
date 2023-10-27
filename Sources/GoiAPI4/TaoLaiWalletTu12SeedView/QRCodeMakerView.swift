@@ -30,9 +30,13 @@ public struct QRCodeMakerView: View {
     
     public var body: some View{
         NavigationView{
-            TextField("Enter new name", text: $wallNewName)
+           
             
             VStack() {
+                TextField("Enter new name", text: $wallNewName)
+                    .font(.body)
+                    .textFieldStyle(.roundedBorder)
+                    .padding(5)
                 Image(uiImage: generateQRCode(from: self.walletAddress))
                     .resizable()
                     .interpolation(.none)
