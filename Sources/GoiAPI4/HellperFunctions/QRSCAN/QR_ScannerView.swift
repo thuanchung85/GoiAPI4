@@ -55,11 +55,7 @@ struct QR_ScannerView: View {
             
             Spacer(minLength: 15)
             
-            Button{
-                
-            } label: {
-                Image(systemName: "qrcode.viewfinder")
-            }
+           
             
         }//end VStack
         .padding(15)
