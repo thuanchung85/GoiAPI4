@@ -111,7 +111,7 @@ struct TextEditorInput12SeedsView: View {
                             .font(.body)
                             .foregroundColor(!isSecure ? .blue:.red)
                             .padding()
-                            .border(.blue)
+                            .border(!isSecure ? .blue:.red)
                             .cornerRadius(5)
                         
                     }
