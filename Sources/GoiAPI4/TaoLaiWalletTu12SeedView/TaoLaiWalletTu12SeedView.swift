@@ -14,10 +14,12 @@ public struct TaoLaiWalletTu12SeedView: View {
    
     @State var isStillLoadingWallet = true
     
+    @Binding var userPassRecoveryWalletby12Seed:Bool
     
     //===INIT==//
-    public init(string12SeedText:Binding<String>) {
+    public init(string12SeedText:Binding<String>, userPassRecoveryWalletby12Seed:Binding<Bool>) {
         self._string12SeedText = string12SeedText
+        self._userPassRecoveryWalletby12Seed = userPassRecoveryWalletby12Seed
     }
     
     //==BODY==//
@@ -51,16 +53,15 @@ public struct TaoLaiWalletTu12SeedView: View {
                         Text("THIS IS YOUR WALLET").font(.title)
                         QRCodeMakerView(walletAddress: $addressWallet,width: 300,height: 300)
                         
-                        //nut next để enter name mới và passcode
-                        NavigationLink(destination:  FormEnterNewNameVaPassCode(addressWallet:addressWallet))
-                        {
-                            Text("NEXT")
-                                .foregroundColor(.white)
-                                .padding(12)
-                            
+                        //nut next để user pass khỏi quá trình này
+                        Button {
+                            userPassRecoveryWalletby12Seed = true
+                        } label: {
+                            Text("NEXT!")
+                                .font(.body)
+                               
                         }
-                        .background(Color.black)
-                        .cornerRadius(12)
+                       
                     }
                     
                 }
