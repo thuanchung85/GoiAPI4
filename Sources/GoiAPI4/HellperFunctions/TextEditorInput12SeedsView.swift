@@ -111,7 +111,7 @@ struct TextEditorInput12SeedsView: View {
                     ForEach(traRaChuoi(data12Words: data12Words, text: text), id: \.self) { item in
                         if(item == "You input over 12 words, please check again!"){
                             Text(item)
-                                .frame(maxHeight: 200)
+                                .frame(width: 200)
                                 .font(.body)
                                 .foregroundColor(.red)
                                 .padding()
