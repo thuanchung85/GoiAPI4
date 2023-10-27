@@ -109,17 +109,29 @@ struct TextEditorInput12SeedsView: View {
            
                 LazyVGrid(columns: columns,alignment: .center, spacing: 10) {
                     ForEach(traRaChuoi(data12Words: data12Words, text: text), id: \.self) { item in
-                        Text(item)
-                            .frame(width: 130)
-                            .font(.body)
-                            .foregroundColor(!isSecure ? .blue:.red)
-                            .padding()
-                            .border(!isSecure ? .blue:.red)
-                            .cornerRadius(5)
-                            .lineLimit(1)
-                            .scaledToFit()
-                            .minimumScaleFactor(0.01)
-                        
+                        if(item == "You input over 12 words, please check again!"){
+                            Text(item)
+                                .frame(width: 300,height: .infinity)
+                                .font(.body)
+                                .foregroundColor(!isSecure ? .blue:.red)
+                                .padding()
+                                .border(!isSecure ? .blue:.red)
+                                .cornerRadius(5)
+                                .scaledToFit()
+                                .minimumScaleFactor(0.01)
+                        }
+                        else{
+                            Text(item)
+                                .frame(width: 130)
+                                .font(.body)
+                                .foregroundColor(!isSecure ? .blue:.red)
+                                .padding()
+                                .border(!isSecure ? .blue:.red)
+                                .cornerRadius(5)
+                                .lineLimit(1)
+                                .scaledToFit()
+                                .minimumScaleFactor(0.01)
+                        }
                     }
                 }
                 .padding(.horizontal)
@@ -148,7 +160,7 @@ func traRaChuoi(data12Words:[String], text:String)->[String]
         
         return arrX
     }
-    return data12Words
+    return ["You input over 12 words, please check again!"]
 }
 
 
