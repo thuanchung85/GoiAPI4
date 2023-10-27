@@ -43,7 +43,7 @@ struct TextEditorInput12SeedsView: View {
                                 }
                                 }
                             .background(Color.gray)
-                            .frame(width: 350, height: 150)
+                            .frame(width: 350, height: 100)
                             .border(Color.black, width: 1)
                             .opacity(isSecure ? 0:1)
                         
@@ -58,7 +58,7 @@ struct TextEditorInput12SeedsView: View {
                                 }
                             .foregroundColor(.red)
                             .background(Color.red)
-                            .frame(width: 350, height: 150)
+                            .frame(width: 350, height: 100)
                             .border(Color.red, width: 1)
                             .opacity(isSecure ? 1:0)
                     }
