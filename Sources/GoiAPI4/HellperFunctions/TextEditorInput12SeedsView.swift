@@ -86,7 +86,7 @@ struct TextEditorInput12SeedsView: View {
             //nut show hide từ và //nut gọi QR scan
             HStack{
                 //nut đi tới màn hình scan QR
-                NavigationLink(destination:   QR_ScannerView())
+                NavigationLink(destination:   QR_ScannerView(scannerCode: $text))
                 {
                     Text("Scan QR code")
                         .foregroundColor(.white)
