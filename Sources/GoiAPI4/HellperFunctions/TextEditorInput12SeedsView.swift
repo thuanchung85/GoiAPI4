@@ -83,8 +83,23 @@ struct TextEditorInput12SeedsView: View {
                 
             }
             
-            //nut show hide từ
+            //nut show hide từ và //nut gọi QR scan
             HStack{
+                Button(action: {
+                    isSecure.toggle()
+                    //nếu bấm isSecure == true
+                    if (isSecure == true)
+                    {
+                        textHide = text
+                    }
+                    //nếu bấm isSecure == false
+                    else
+                    {
+                        text = bkt
+                    }
+                }, label: {
+                    Text("Scan QR code")
+                })
                 Spacer()
                 //nút này chỉ được kick hoạt khi user đã nhập cai gì đó vào text
                 if(ActiveEyeicon == true){
@@ -100,9 +115,6 @@ struct TextEditorInput12SeedsView: View {
                         {
                             text = bkt
                         }
-                        
-                        
-                        
                     }, label: {
                         Image(systemName: !isSecure ? "eye.slash" : "eye" )
                     })
@@ -110,6 +122,8 @@ struct TextEditorInput12SeedsView: View {
             }
             
             
+            
+            //==Khung 12 từ
             //12 từ trong khung bên dưới khi user nhập chuổi ở trên thì auto load vào dưa theo khoảng cách trong chuoi text
             if(traRaChuoi(data12Words: data12Words, text: text).contains("You input over 12 words, please check again!") == true){
                 Text("You input over 12 words, please check again!")
@@ -148,7 +162,7 @@ struct TextEditorInput12SeedsView: View {
 
 
 
-
+//==hàm trả ra chuỗi khi người dùng nhập, ta xữ lý cắt ghép để bỏ vào khung 12 từ==//
 func traRaChuoi(data12Words:[String], text:String, isSecure:Bool? = false)->[String]
 {
     var arrT  = text.components(separatedBy: " ")
