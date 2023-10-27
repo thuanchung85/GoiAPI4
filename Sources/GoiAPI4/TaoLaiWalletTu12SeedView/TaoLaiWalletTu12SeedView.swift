@@ -6,7 +6,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 
-public struct Re_GenerateWalletView: View {
+public struct TaoLaiWalletTu12SeedView: View {
    
     @Binding var string12SeedText:String
    

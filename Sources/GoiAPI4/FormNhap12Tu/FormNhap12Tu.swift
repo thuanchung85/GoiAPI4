@@ -5,7 +5,7 @@ import Foundation
 import SwiftUI
 import UniformTypeIdentifiers
 
-public struct RecoveryWalletView: View {
+public struct FormNhap12Tu: View {
    
   
    
@@ -37,7 +37,7 @@ public struct RecoveryWalletView: View {
                 //nut next tơi view tiếp theo genegate lại ví củ theo 12 từ
                 //===nút đi tới recovery wallet view của gói API 4===//
                 if(isPassInput12Seed == true){
-                    NavigationLink(destination:  Re_GenerateWalletView(string12SeedText: $string12SeedText))
+                    NavigationLink(destination:  TaoLaiWalletTu12SeedView(string12SeedText: $string12SeedText))
                     {
                         Text("Get Wallet")
                             .foregroundColor(.white)
