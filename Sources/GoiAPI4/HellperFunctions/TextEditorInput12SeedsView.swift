@@ -24,7 +24,7 @@ struct TextEditorInput12SeedsView: View {
         GridItem(.flexible()),
         GridItem(.flexible()),
     ]
-    @State var data12Words = (1...12).map { "\($0). item" }
+    @State var data12Words = (1...12).map { "\($0):..." }
    
     
     var titleKey: String
