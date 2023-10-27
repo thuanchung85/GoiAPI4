@@ -12,9 +12,11 @@ public struct FormNhap12TuKhoiPhucVi: View {
     @State var string12SeedText = ""
    @State var isPassInput12Seed = false
     @Binding var userPassRecoveryWalletby12Seed:Bool
+    @Binding var wallNewName:String
     
-    public init(userPassRecoveryWalletby12Seed:Binding<Bool>) {
+    public init(userPassRecoveryWalletby12Seed:Binding<Bool>, wallNewName:Binding<String>) {
         self._userPassRecoveryWalletby12Seed = userPassRecoveryWalletby12Seed
+        self._wallNewName = wallNewName
     }
     
     public var body: some View{
@@ -38,7 +40,8 @@ public struct FormNhap12TuKhoiPhucVi: View {
                 //===nút đi tới recovery wallet view của gói API 4===//
                 if(isPassInput12Seed == true){
                     NavigationLink(destination:  TaoLaiWalletTu12SeedView(string12SeedText: $string12SeedText,
-                                                                          userPassRecoveryWalletby12Seed: $userPassRecoveryWalletby12Seed))
+                                                                          userPassRecoveryWalletby12Seed: $userPassRecoveryWalletby12Seed,
+                                                                          wallNewName: $wallNewName))
                     {
                         Text("Get Wallet")
                             .foregroundColor(.white)
