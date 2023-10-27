@@ -20,9 +20,8 @@ class QRScannerDelegate:NSObject,ObservableObject, AVCaptureMetadataOutputObject
             if let metaObject = metadataObjects.first{
                 guard let readableObject = metaObject as? AVMetadataMachineReadableCodeObject else {return}
                 guard let scannedCodeOutPut = readableObject.stringValue else {return}
-                //print(scannedCodeOutPut)
                 scannerCode = scannedCodeOutPut
-                print(scannerCode)
+                
             }
         
     

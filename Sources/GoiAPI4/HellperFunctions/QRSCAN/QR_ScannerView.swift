@@ -65,13 +65,14 @@ struct QR_ScannerView: View {
         .alert(isPresented: $showError) {
             Alert(title: Text("QR SCAN ERROR"))
         }
-        .onAppear(perform:  checkCameraPermission)
         .onChange(of: qrOutputDelegate.scannerCode) { newValue in
-          
+          print(newValue)
                 self.scannerCode = newValue
                 session.stopRunning()
             
         }
+        .onAppear(perform:  checkCameraPermission)
+       
     }//end body
     
     //====hàm check quyền truy câp camera====/
