@@ -12,6 +12,12 @@ public struct RecoveryWalletView: View {
     @State var string12SeedText = ""
    @State var isPassInput12Seed = false
     
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
+    @State var data12Words = (1...12).map { "\($0). item" }
+    
     public init() {
         
     }
@@ -30,6 +36,25 @@ public struct RecoveryWalletView: View {
                     SecureInputView("Enter your 12 seeds separated by spaces", text:  $string12SeedText)
                 }
                
+                
+                //12 từ trong khung
+                ScrollView {
+                    LazyVGrid(columns: columns,alignment: .center, spacing: 10) {
+                        ForEach(data12Words, id: \.self) { item in
+                            Text(item)
+                                .frame(width: 130)
+                                .font(.body)
+                                .foregroundColor(.blue)
+                                .padding()
+                                .border(.blue)
+                                .cornerRadius(5)
+                            
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+                .frame(maxHeight: 500)
+                
                 //nut next tơi view tiếp theo genegate lại ví củ theo 12 từ
                 //===nút đi tới recovery wallet view của gói API 4===//
                 if(isPassInput12Seed == true){
