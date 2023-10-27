@@ -90,11 +90,11 @@ struct TextEditorInput12SeedsView: View {
                 {
                     Text("Scan QR code")
                         .foregroundColor(.white)
-                        .padding(12)
+                        .padding(5)
                     
                 }
                 .background(Color.black)
-                .cornerRadius(12)
+                .cornerRadius(5)
                 
                
                 Spacer()
