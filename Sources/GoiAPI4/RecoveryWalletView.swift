@@ -23,7 +23,7 @@ public struct RecoveryWalletView: View {
     }
     
     public var body: some View{
-     
+        ScrollView {
             //Choose View
             VStack(alignment: .center) {
                 Text("Recovery Your Wallet").font(.title)
@@ -38,7 +38,7 @@ public struct RecoveryWalletView: View {
                
                 
                 //12 từ trong khung
-                ScrollView {
+              
                     LazyVGrid(columns: columns,alignment: .center, spacing: 10) {
                         ForEach(data12Words, id: \.self) { item in
                             Text(item)
@@ -52,8 +52,7 @@ public struct RecoveryWalletView: View {
                         }
                     }
                     .padding(.horizontal)
-                }
-                .frame(maxHeight: 500)
+               
                 
                 //nut next tơi view tiếp theo genegate lại ví củ theo 12 từ
                 //===nút đi tới recovery wallet view của gói API 4===//
@@ -71,7 +70,8 @@ public struct RecoveryWalletView: View {
             }
             .padding(.bottom,10)
             
-       
+        }
+        
     }
     
     
