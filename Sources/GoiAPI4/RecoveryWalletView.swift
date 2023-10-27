@@ -20,7 +20,7 @@ public struct RecoveryWalletView: View {
      
             //Choose View
             VStack(alignment: .center) {
-                Text("Recovery Your Wallet from 12 seed words").font(.title)
+                Text("Recovery Your Wallet").font(.title)
               
                 Text("Enter your 12 seeds separated by spaces:")
                 

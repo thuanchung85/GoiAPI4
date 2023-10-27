@@ -120,7 +120,10 @@ struct SecureInputView: View {
                     TextField(title, text: $text)
                 }
             }.padding(.trailing, 32)
-
+                .background(Color.gray)
+                .foregroundColor(.white)
+                .cornerRadius(5)
+            
             Button(action: {
                 isSecured.toggle()
             }) {
