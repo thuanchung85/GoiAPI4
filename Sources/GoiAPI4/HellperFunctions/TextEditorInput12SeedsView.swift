@@ -26,7 +26,7 @@ struct TextEditorInput12SeedsView: View {
     ]
     @State var data12Words = (1...12).map { "\($0):..." }
    
-    
+   
     var titleKey: String
     
     //=====BODY====//
@@ -106,19 +106,19 @@ struct TextEditorInput12SeedsView: View {
             
             
             //12 từ trong khung bên dưới khi user nhập chuổi ở trên thì auto load vào dưa theo khoảng cách trong chuoi text
-           
+            if(traRaChuoi(data12Words: data12Words, text: text).contains("You input over 12 words, please check again!") == true){
+                Text("You input over 12 words, please check again!")
+                    .frame(width: 300)
+                    .font(.body)
+                    .foregroundColor(.red)
+                    .padding()
+                    .scaledToFit()
+                    .minimumScaleFactor(0.01)
+            }
+            else{
                 LazyVGrid(columns: columns,alignment: .center, spacing: 10) {
                     ForEach(traRaChuoi(data12Words: data12Words, text: text), id: \.self) { item in
-                        if(item == "You input over 12 words, please check again!"){
-                            Text(item)
-                                .frame(width: 400)
-                                .font(.body)
-                                .foregroundColor(.red)
-                                .padding()
-                                .scaledToFit()
-                                .minimumScaleFactor(0.01)
-                        }
-                        else{
+                        
                             Text(item)
                                 .frame(width: 130)
                                 .font(.body)
@@ -129,11 +129,11 @@ struct TextEditorInput12SeedsView: View {
                                 .lineLimit(1)
                                 .scaledToFit()
                                 .minimumScaleFactor(0.01)
-                        }
+                        
                     }
                 }
                 .padding(.horizontal)
-           
+            }
         }//end vstack
        
     }//end body
