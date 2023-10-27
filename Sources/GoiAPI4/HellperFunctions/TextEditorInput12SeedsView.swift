@@ -154,7 +154,7 @@ func traRaChuoi(data12Words:[String], text:String)->[String]
     else{
         //trường hợp user chỉ vô tình nhập 1 từ space thì vẫn ok
         if(arrT.count == 13){
-            if (arrT.last == " ")
+            if (arrT.last == "")
             {
                 let  combin2Array = Array(zip(data12Words, arrT))
                 let arrRWithIndex = combin2Array.enumerated()
