@@ -17,19 +17,11 @@ struct QR_ScannerView: View {
     @State var errorMessage: String = ""
     @State var showError:Bool = false
     
-   
+    @State var qrOutputDelegate = QRScannerDelegate()
     //===BODY==//
     var body: some View {
         VStack(spacing: 8){
-            Button{
-                
-            } label: {
-                Image(systemName: "xmark")
-                    .font(.title3)
-                    .foregroundColor(Color.blue)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-                
+           
             Text("Place the QR code inside the area")
                 .font(.title3)
                 .foregroundColor(.black.opacity(0.8))
@@ -77,6 +69,33 @@ struct QR_ScannerView: View {
         .onAppear(perform:  checkCameraPermission)
     }//end body
     
+    
+    
+    func setupCamera(){
+        do{
+            guard let device = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first else {
+                print("camare not found")
+                return
+            }
+            let input = try AVCaptureDeviceInput(device: device)
+            guard session.canAddInput(input), session.canAddOutput(self.qrOutput) else{
+                print("camare session error")
+                return
+            }
+            session.beginConfiguration()
+            session.addInput(input)
+            session.addOutput(qrOutput)
+            qrOutput.metadataObjectTypes = [.qr]
+            qrOutput.setMetadataObjectsDelegate(qrOutputDelegate, queue: .main)
+            session.commitConfiguration()
+            session.startRunning()
+        }
+        catch{
+            print("error when setup camera")
+            return
+        }
+    }
+    
 }//end struct
 
 //hàm check quyền truy câp camera
@@ -96,3 +115,4 @@ func checkCameraPermission(){
         })
     }
 }
+
