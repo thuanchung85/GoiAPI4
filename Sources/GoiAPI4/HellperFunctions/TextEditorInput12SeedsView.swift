@@ -122,7 +122,7 @@ struct TextEditorInput12SeedsView: View {
             }
             else{
                 LazyVGrid(columns: columns,alignment: .center, spacing: 10) {
-                    ForEach(traRaChuoi(data12Words: data12Words, text: text), id: \.self) { item in
+                    ForEach(traRaChuoi(data12Words: data12Words, text: text, isSecure: isSecure), id: \.self) { item in
                         
                             Text(item)
                                 .frame(width: 130)
@@ -149,7 +149,7 @@ struct TextEditorInput12SeedsView: View {
 
 
 
-func traRaChuoi(data12Words:[String], text:String)->[String]
+func traRaChuoi(data12Words:[String], text:String, isSecure:Bool? = false)->[String]
 {
     var arrT  = text.components(separatedBy: " ")
     if(arrT.last == "") {arrT.removeLast()}
@@ -157,7 +157,13 @@ func traRaChuoi(data12Words:[String], text:String)->[String]
         let  combin2Array = Array(zip(data12Words, arrT))
         let arrRWithIndex = combin2Array.enumerated()
         let arrX = arrRWithIndex.map({ eO in
-            return "\(eO.offset + 1). " + eO.element.1
+            if(isSecure! == true){
+                return "\(eO.offset + 1). " +  String(eO.element.1.reversed())
+            }
+            else{
+                return "\(eO.offset + 1). " + eO.element.1
+            }
+           
         })
         
         return arrX
