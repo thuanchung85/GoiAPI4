@@ -35,7 +35,7 @@ struct QR_ScannerView: View {
             GeometryReader{
                 let size = $0.size
                 ZStack{
-                    CameraView(frameSize: CGSize(width: size.width, height: size.height), session: $session)
+                    CameraView(frameSize: CGSize(width: size.width, height: size.width), session: $session)
                     
                     ForEach(0...4, id: \.self){ index in
                         let rotation = Double(index) * 90
