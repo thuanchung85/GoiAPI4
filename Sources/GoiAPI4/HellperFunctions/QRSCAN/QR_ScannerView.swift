@@ -69,8 +69,27 @@ struct QR_ScannerView: View {
         .onAppear(perform:  checkCameraPermission)
     }//end body
     
+    //====hàm check quyền truy câp camera====/
+    func checkCameraPermission(){
+        if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
+            //already authorized
+            print("CAMERA already authorized")
+            setupCamera()
+        } else {
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+                if granted {
+                    //access allowed
+                    print("CAMERA access allowed")
+                    setupCamera()
+                } else {
+                    //access denied
+                    print("CAMERA access denied")
+                }
+            })
+        }
+    }
     
-    
+    //=======hàm chạy camera=========//
     func setupCamera(){
         do{
             guard let device = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first else {
@@ -98,21 +117,5 @@ struct QR_ScannerView: View {
     
 }//end struct
 
-//hàm check quyền truy câp camera
-func checkCameraPermission(){
-    if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
-        //already authorized
-        print("CAMERA already authorized")
-    } else {
-        AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
-            if granted {
-                //access allowed
-                print("CAMERA access allowed")
-            } else {
-                //access denied
-                print("CAMERA access denied")
-            }
-        })
-    }
-}
+
 
