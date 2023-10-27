@@ -49,7 +49,7 @@ struct QR_ScannerView: View {
                 .frame(width: size.width,height: size.width)
                
                 .frame(maxWidth: .infinity,maxHeight: .infinity)
-            }.padding(.horizontal,45)
+            }.padding(.horizontal,15)
             
             
             
