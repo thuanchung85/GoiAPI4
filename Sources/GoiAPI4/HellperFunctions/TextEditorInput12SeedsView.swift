@@ -136,7 +136,7 @@ func traRaChuoi(data12Words:[String], text:String)->[String]
         let  combin2Array = Array(zip(data12Words, arrT))
         let arrRWithIndex = combin2Array.enumerated()
         let arrX = arrRWithIndex.map({ eO in
-            return "\(eO.offset)" + eO.element.1
+            return "\(eO.offset + 1). " + eO.element.1
         })
         
         
