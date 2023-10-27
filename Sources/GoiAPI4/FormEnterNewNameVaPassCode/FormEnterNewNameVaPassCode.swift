@@ -11,10 +11,10 @@ public struct FormEnterNewNameVaPassCode: View
     @State var walletName:String = ""
     @State var checkBoxisOn:Bool = false
     @State var isUserPass_ChooseCreateWallet_View:Bool = false
-    
+     var addressWallet = ""
     //==INIT===/
-    public init() {
-       
+    public init(addressWallet:String) {
+        self.addressWallet = addressWallet
     }
     
     //===BODY===//
@@ -22,6 +22,12 @@ public struct FormEnterNewNameVaPassCode: View
          
         VStack(alignment: .leading)
         {
+            //phần address
+            VStack(alignment: .leading){
+                Text("YOUR WALLET ADDRESS: ").font(.title)
+                Text(addressWallet)
+                    .font(.footnote)
+            }
          
             //phần nhập tên ví
             VStack(alignment: .leading){

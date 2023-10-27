@@ -52,7 +52,7 @@ public struct TaoLaiWalletTu12SeedView: View {
                         QRCodeMakerView(walletAddress: $addressWallet,width: 300,height: 300)
                         
                         //nut next để enter name mới và passcode
-                        NavigationLink(destination:  FormEnterNewNameVaPassCode())
+                        NavigationLink(destination:  FormEnterNewNameVaPassCode(addressWallet:addressWallet))
                         {
                             Text("NEXT")
                                 .foregroundColor(.white)
