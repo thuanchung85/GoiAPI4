@@ -109,7 +109,7 @@ struct TextEditorInput12SeedsView: View {
                         Text(item)
                             .frame(width: 130)
                             .font(.body)
-                            .foregroundColor(.blue)
+                            .foregroundColor(!isSecure ? .blue:.red)
                             .padding()
                             .border(.blue)
                             .cornerRadius(5)
