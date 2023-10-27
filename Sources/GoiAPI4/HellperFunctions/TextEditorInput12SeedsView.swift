@@ -86,17 +86,8 @@ struct TextEditorInput12SeedsView: View {
             //nut show hide từ và //nut gọi QR scan
             HStack{
                 Button(action: {
-                    isSecure.toggle()
-                    //nếu bấm isSecure == true
-                    if (isSecure == true)
-                    {
-                        textHide = text
-                    }
-                    //nếu bấm isSecure == false
-                    else
-                    {
-                        text = bkt
-                    }
+                   //mở QR scanner View
+                    
                 }, label: {
                     Text("Scan QR code")
                 })
