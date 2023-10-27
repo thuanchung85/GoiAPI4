@@ -20,6 +20,13 @@ struct TextEditorInput12SeedsView: View {
     @State var ActiveEyeicon = false
     
     
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
+    @State var data12Words = (1...12).map { "\($0). item" }
+   
+    
     var titleKey: String
     var body: some View {
         VStack{
@@ -94,6 +101,23 @@ struct TextEditorInput12SeedsView: View {
                     })
                 }
             }
+            
+            
+            //12 từ trong khung
+                LazyVGrid(columns: columns,alignment: .center, spacing: 10) {
+                    ForEach(data12Words, id: \.self) { item in
+                        Text(item)
+                            .frame(width: 130)
+                            .font(.body)
+                            .foregroundColor(.blue)
+                            .padding()
+                            .border(.blue)
+                            .cornerRadius(5)
+                        
+                    }
+                }
+                .padding(.horizontal)
+           
         }
        
     }
