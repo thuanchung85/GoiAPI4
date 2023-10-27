@@ -53,7 +53,12 @@ public struct TaoLaiWalletTu12SeedView: View {
                     //Choose View
                     VStack(alignment: .center) {
                         Text("THIS IS YOUR WALLET").font(.title)
-                        QRCodeMakerView(WallLetName: $wallNewName, walletAddress: $addressWallet,width: 300,height: 300)
+                        
+                            TextField("Enter new name", text: $wallNewName)
+                                .font(.body)
+                                .textFieldStyle(.roundedBorder)
+                                .padding(5)
+                        QRCodeMakerView( walletAddress: $addressWallet,width: 300,height: 300)
                         
                         //nut next để user pass khỏi quá trình này
                         Button {

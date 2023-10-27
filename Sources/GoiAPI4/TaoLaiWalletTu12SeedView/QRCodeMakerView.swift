@@ -14,14 +14,14 @@ public struct QRCodeMakerView: View {
    
     @Binding  var walletAddress:String
   
-    @Binding var wallNewName:String
+  
    
     
      var width:CGFloat?
      var height:CGFloat?
     
-    public init(WallLetName: Binding<String>, walletAddress: Binding<String>, width:CGFloat,  height:CGFloat) {
-        self._wallNewName = WallLetName
+    public init( walletAddress: Binding<String>, width:CGFloat,  height:CGFloat) {
+       
         self._walletAddress = walletAddress
        
         self.width = width
@@ -33,10 +33,7 @@ public struct QRCodeMakerView: View {
            
             
             VStack() {
-                TextField("Enter new name", text: $wallNewName)
-                    .font(.body)
-                    .textFieldStyle(.roundedBorder)
-                    .padding(5)
+            
                 Image(uiImage: generateQRCode(from: self.walletAddress))
                     .resizable()
                     .interpolation(.none)
