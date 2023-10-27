@@ -115,8 +115,6 @@ struct TextEditorInput12SeedsView: View {
                                 .font(.body)
                                 .foregroundColor(.red)
                                 .padding()
-                                .border(.red)
-                                .cornerRadius(5)
                                 .scaledToFit()
                                 .minimumScaleFactor(0.01)
                         }
