@@ -28,6 +28,8 @@ struct TextEditorInput12SeedsView: View {
    
     
     var titleKey: String
+    
+    //=====BODY====//
     var body: some View {
         VStack{
             
@@ -45,9 +47,9 @@ struct TextEditorInput12SeedsView: View {
                                 textHide = bkt
                                 ActiveEyeicon = true
                                 
-                                if(text.count >= 12){
-                                    isPassInput12Seed = true
-                                }
+                                //if(text.count >= 12){
+                                    //isPassInput12Seed = true
+                                //}
                                 }
                             .background(Color.gray)
                             .frame(width: 350, height: 100)
@@ -103,9 +105,10 @@ struct TextEditorInput12SeedsView: View {
             }
             
             
-            //12 từ trong khung
+            //12 từ trong khung bên dưới khi user nhập chuổi ở trên thì auto load vào dưa theo khoảng cách trong chuoi text
+           
                 LazyVGrid(columns: columns,alignment: .center, spacing: 10) {
-                    ForEach(data12Words, id: \.self) { item in
+                    ForEach(traRaChuoi(data12Words: data12Words, text: text), id: \.self) { item in
                         Text(item)
                             .frame(width: 130)
                             .font(.body)
@@ -118,11 +121,24 @@ struct TextEditorInput12SeedsView: View {
                 }
                 .padding(.horizontal)
            
-        }
+        }//end vstack
        
-    }
+    }//end body
 }
 
+func traRaChuoi(data12Words:[String], text:String)->[String]
+{
+    let arrT  = text.components(separatedBy: " ")
+    if(arrT.count<12){
+        let  combin2Array = Array(zip(data12Words, arrT))
+        let arrR = combin2Array.map { (String1, String2) in
+            print("\(String1) +___+ \(String2)")
+            return String1
+        }
+        return arrR
+    }
+    return data12Words
+}
 
 
 
