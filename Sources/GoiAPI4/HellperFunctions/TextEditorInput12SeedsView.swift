@@ -47,9 +47,10 @@ struct TextEditorInput12SeedsView: View {
                                 textHide = bkt
                                 ActiveEyeicon = true
                                 
-                                //if(text.count >= 12){
-                                    //isPassInput12Seed = true
-                                //}
+                                //kich hoạt truyền ra ngoài user pass 12 từ
+                                if(traRaChuoi(data12Words: data12Words, text: text).count == 12){
+                                    isPassInput12Seed = true
+                                }
                                 }
                             .background(Color.gray)
                             .frame(width: 350, height: 100)
@@ -138,6 +139,11 @@ struct TextEditorInput12SeedsView: View {
        
     }//end body
 }
+
+
+
+
+
 
 func traRaChuoi(data12Words:[String], text:String)->[String]
 {
