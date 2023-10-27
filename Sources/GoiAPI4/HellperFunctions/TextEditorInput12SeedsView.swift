@@ -74,6 +74,7 @@ struct TextEditorInput12SeedsView: View {
                             .frame(width: 350, height: 100)
                             .border(Color.red, width: 1)
                             .opacity(isSecure ? 1:0)
+                            .disabled(true)
                     }
                     
                 }.textFieldStyle(.roundedBorder)
