@@ -9,7 +9,9 @@ struct Input12SeedsView: View {
     @Binding var isPassInput12Seed: Bool
     @Binding var text: String
     
+    
     @State var isShow_ScanQRcodeView = false
+    @State var isShow_NextButton = false
     
     @State var textHide: String
     @State var bkt:String
@@ -36,8 +38,7 @@ struct Input12SeedsView: View {
         {
             
             QR_ScannerView(scannerCode: $text,
-                           isShow_ScanQRcodeView: $isShow_ScanQRcodeView,
-                           isPassInput12Seed:$isPassInput12Seed)
+                           isShow_NextButton:$isShow_NextButton)
             
         }//end if
         
@@ -45,8 +46,6 @@ struct Input12SeedsView: View {
         if(self.isShow_ScanQRcodeView == false)
         {
             VStack{
-                
-                
                 //===chổ nhập 12 từ====///
                 HStack{
                     Group{
@@ -62,10 +61,10 @@ struct Input12SeedsView: View {
                                     
                                     //kich hoạt truyền ra ngoài user pass 12 từ khi đã nhập đủ
                                     if(traRaChuoi(data12Words: data12Words, text: text).count == 12){
-                                        isPassInput12Seed = true
+                                        isShow_NextButton = true
                                     }
                                     else{
-                                        isPassInput12Seed = false
+                                        isShow_NextButton = false
                                     }
                                 }
                                 .background(Color.gray)
@@ -160,10 +159,27 @@ struct Input12SeedsView: View {
                     .padding(.horizontal)
                 }
                 
-                
-                
             }//end vstack
+            
+            
         }//end if
+        
+        //===nút đi tới OldWalletView , nut này cần kick hoat bang QR hay nhap đủ 12 từ===//
+        if(isShow_NextButton == true){
+            Button(action: {
+                self.isPassInput12Seed = true
+            }) {
+                VStack {
+                    Text("Get Wallet")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.green)
+                }
+                .padding(5)
+                .accentColor(Color(.red))
+            }
+            
+        }
     }//end body
 }
 

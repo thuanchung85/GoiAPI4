@@ -28,28 +28,15 @@ public struct RecoverWallet_View: View {
                     
                     Text("Enter your 12 seeds separated by spaces:")
                     
-                    
-                    //===nút đi tới OldWalletView===//
-                    if(isPassInput12Seed == true){
-                        Button(action: {
-                            self.isShow_OldWalletView = true
-                        }) {
-                            VStack {
-                                Text("Get Wallet")
-                                    .padding()
-                                    .foregroundColor(.white)
-                                    .background(Color.green)
-                            }
-                            .padding(5)
-                            .accentColor(Color(.red))
-                        }
-                        
-                    }
                     //text editor cho phep user nhập 12 từ và che dấu khi cần
                     HStack{
-                        Input12SeedsView(isPassInput12Seed: $isPassInput12Seed,text: $string12SeedText, textHide: "", bkt: "", titleKey: "Enter your 12 seeds separated by spaces")
+                        Input12SeedsView(isPassInput12Seed: $isPassInput12Seed,
+                                         text: $string12SeedText,
+                                         textHide: "", bkt: "", titleKey: "Enter your 12 seeds separated by spaces")
                         
                     }
+                 
+                    
                     
                     
                 }
