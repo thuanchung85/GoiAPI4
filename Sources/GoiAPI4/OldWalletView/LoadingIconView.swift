@@ -38,7 +38,7 @@ struct LoadingView<Content>: View where Content: View {
                         .blur(radius: self.isShowing ? 3 : 0)
                         .padding(.horizontal)
                     VStack(alignment: .center) {
-                        Text("Making Wallet...")
+                        Text("Recovery Your Wallet...")
                         ActivityIndicator(isAnimating: .constant(true), style: .large)
                     }
                     .frame(width: geometry.size.width / 2,
