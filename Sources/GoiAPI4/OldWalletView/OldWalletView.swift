@@ -34,27 +34,15 @@ public struct OldWalletView: View {
                                     string12SeedText : string12SeedText,
                                     isShowing:  $isStillLoadingWallet)
                         {
-                            ScrollView{
-                                //Choose View
-                                VStack(alignment: .center) {
+                            //Choose View
+                            VStack(alignment: .center) {
+                               
+                                HStack(alignment: .center){
                                     Text("THIS IS YOUR WALLET").font(.title)
-                                    
-                                    TextField("Enter new name", text: $wallNewName)
-                                        .font(.body)
-                                        .textFieldStyle(.roundedBorder)
-                                        .padding(5)
-                                    QRCodeMakerView( walletAddress: $addressWallet,width: 300,height: 300)
-                                    
-                                    //nut next để user pass khỏi quá trình này
-                                    Button {
-                                        userPassRecoveryWalletby12Seed = true
-                                    } label: {
-                                        Text("NEXT!")
-                                            .font(.body)
-                                        
-                                    }
-                                    
-                                }
+                                        .padding(.horizontal)
+                                }.padding(.bottom,30)
+                               
+                                Spacer()
                             }
                             
                         }

@@ -41,11 +41,9 @@ public struct RecoverWallet_View: View {
             
             //nếu user pass nhập đúng 12 từ thì show tiếp OldWalletView
             if (self.isPassInput12Seed == true){
-                VStack(alignment: .center) {
                     OldWalletView(string12SeedText: $string12SeedText,
                                   userPassRecoveryWalletby12Seed: $userPassRecoveryWalletby12Seed,
                                   wallNewName: $wallNewName)
-                }
             }
             
            
