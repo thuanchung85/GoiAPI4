@@ -7,8 +7,7 @@ import UniformTypeIdentifiers
 
 public struct RecoverWallet_View: View {
    
-    @State var isShow_OldWalletView:Bool = false
-   
+    
     @State var string12SeedText = ""
    @State var isPassInput12Seed = false
     @Binding var userPassRecoveryWalletby12Seed:Bool
@@ -22,7 +21,7 @@ public struct RecoverWallet_View: View {
     public var body: some View{
         ScrollView {
             //view nhập 12 từ vào
-            if (self.isShow_OldWalletView == false){
+            if (self.isPassInput12Seed == false){
                 VStack(alignment: .center) {
                     Text("Recovery Your Wallet").font(.title)
                     
@@ -35,17 +34,13 @@ public struct RecoverWallet_View: View {
                                          textHide: "", bkt: "", titleKey: "Enter your 12 seeds separated by spaces")
                         
                     }
-                 
-                    
-                    
-                    
                 }
                 .padding(.bottom,10)
                 
             }
             
             //nếu user pass nhập đúng 12 từ thì show tiếp OldWalletView
-            if (self.isShow_OldWalletView == true){
+            if (self.isPassInput12Seed == true){
                 VStack(alignment: .center) {
                     OldWalletView(string12SeedText: $string12SeedText,
                                   userPassRecoveryWalletby12Seed: $userPassRecoveryWalletby12Seed,
