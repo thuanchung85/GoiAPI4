@@ -31,12 +31,13 @@ struct Input12SeedsView: View {
     
     //=====BODY====//
     var body: some View {
-        
+        //nếu user bấm nút scan qr code thi show ScanQRcodeView ra
         if(self.isShow_ScanQRcodeView == true)
         {
-            QR_ScannerView(scannerCode: $text)
+            QR_ScannerView(scannerCode: $text, isShow_ScanQRcodeView: $isShow_ScanQRcodeView)
         }//end if
         
+        //mới vô show view nhập 12 từ cho người dùng nhập tay hay paste
         if(self.isShow_ScanQRcodeView == false)
         {
             VStack{
