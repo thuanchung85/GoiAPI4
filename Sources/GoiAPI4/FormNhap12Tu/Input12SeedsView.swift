@@ -34,7 +34,11 @@ struct Input12SeedsView: View {
         //nếu user bấm nút scan qr code thi show ScanQRcodeView ra
         if(self.isShow_ScanQRcodeView == true)
         {
-            QR_ScannerView(scannerCode: $text, isShow_ScanQRcodeView: $isShow_ScanQRcodeView)
+            
+            QR_ScannerView(scannerCode: $text,
+                           isShow_ScanQRcodeView: $isShow_ScanQRcodeView,
+                           isPassInput12Seed:$isPassInput12Seed)
+            
         }//end if
         
         //mới vô show view nhập 12 từ cho người dùng nhập tay hay paste
