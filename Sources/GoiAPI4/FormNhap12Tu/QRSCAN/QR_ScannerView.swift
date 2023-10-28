@@ -20,11 +20,13 @@ struct QR_ScannerView: View {
     @StateObject var qrOutputDelegate = QRScannerDelegate()
     
     @Binding var scannerCode:String
+    
+    @Binding var isShow_ScanQRcodeView:Bool
     @Binding var isShow_NextButton:Bool
     
-    public init(scannerCode:Binding<String>, isShow_NextButton:Binding<Bool>)  {
+    public init(scannerCode:Binding<String>, isShow_ScanQRcodeView: Binding<Bool>, isShow_NextButton:Binding<Bool>)  {
         self._scannerCode = scannerCode
-       
+        self._isShow_ScanQRcodeView = isShow_ScanQRcodeView
         self._isShow_NextButton = isShow_NextButton
     }
     
@@ -77,6 +79,7 @@ struct QR_ScannerView: View {
                 self.scannerCode = newValue
                 session.stopRunning()
             //truyền data ra ngoài và dismiss
+            self.isShow_ScanQRcodeView = false
             self.isShow_NextButton = true
             
         }

@@ -37,7 +37,7 @@ struct Input12SeedsView: View {
         if(self.isShow_ScanQRcodeView == true)
         {
             
-            QR_ScannerView(scannerCode: $text,
+            QR_ScannerView(scannerCode: $text, isShow_ScanQRcodeView: $isShow_ScanQRcodeView,
                            isShow_NextButton:$isShow_NextButton)
             
         }//end if
