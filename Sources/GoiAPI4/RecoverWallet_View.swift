@@ -22,22 +22,16 @@ public struct RecoverWallet_View: View {
        
             //view nhập 12 từ vào
             if (self.isPassInput12Seed == false){
-                ScrollView {
-                VStack(alignment: .center) {
-                    Text("Recovery Your Wallet").font(.title)
-                    
-                    Text("Enter your 12 seeds separated by spaces:")
+               
                     
                     //text editor cho phep user nhập 12 từ và che dấu khi cần
-                    HStack{
-                        Input12SeedsView(isPassInput12Seed: $isPassInput12Seed,
+                    Input12SeedsView(isPassInput12Seed: $isPassInput12Seed,
                                          text: $string12SeedText,
                                          textHide: "", bkt: "", titleKey: "Enter your 12 seeds separated by spaces")
                         
-                    }
-                }
-                .padding(.bottom,10)
-                }//end ScrollView
+                    
+               
+              
             }//end if
             
             //nếu user pass nhập đúng 12 từ thì show tiếp OldWalletView
