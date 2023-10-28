@@ -26,7 +26,7 @@ public struct OldWalletView: View {
     
     //==BODY==//
     public var body: some View{
-            VStack(alignment: .center){
+           
                 //nếu chưa re generate  ví xong thì còn show hình mờ
                 if(isStillLoadingWallet == true){
                         LoadingView(addressWallet: $addressWallet,
@@ -74,7 +74,7 @@ public struct OldWalletView: View {
                     }
                 }
                 
-            }
+            
        
           
     }//end body

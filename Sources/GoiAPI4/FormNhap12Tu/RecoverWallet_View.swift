@@ -19,9 +19,10 @@ public struct RecoverWallet_View: View {
     }
     
     public var body: some View{
-        ScrollView {
+       
             //view nhập 12 từ vào
             if (self.isPassInput12Seed == false){
+                ScrollView {
                 VStack(alignment: .center) {
                     Text("Recovery Your Wallet").font(.title)
                     
@@ -36,19 +37,19 @@ public struct RecoverWallet_View: View {
                     }
                 }
                 .padding(.bottom,10)
-                
-            }
+                }//end ScrollView
+            }//end if
             
             //nếu user pass nhập đúng 12 từ thì show tiếp OldWalletView
             if (self.isPassInput12Seed == true){
                     OldWalletView(string12SeedText: $string12SeedText,
                                   userPassRecoveryWalletby12Seed: $userPassRecoveryWalletby12Seed,
                                   wallNewName: $wallNewName)
-            }
+            }//end if
             
            
-        }//end if
-    }
+       
+    }//end body
     
     
     
