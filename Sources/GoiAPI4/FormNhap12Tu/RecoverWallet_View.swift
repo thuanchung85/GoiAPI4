@@ -7,7 +7,7 @@ import UniformTypeIdentifiers
 
 public struct RecoverWallet_View: View {
    
-  
+    @State var isShow_OldWalletView:Bool = false
    
     @State var string12SeedText = ""
    @State var isPassInput12Seed = false
@@ -21,41 +21,56 @@ public struct RecoverWallet_View: View {
     
     public var body: some View{
         ScrollView {
-            //Choose View
-            VStack(alignment: .center) {
-                Text("Recovery Your Wallet").font(.title)
-              
-                Text("Enter your 12 seeds separated by spaces:")
-                
-                //text editor cho phep user nhập 12 từ và che dấu khi cần
-                HStack{
-                    TextEditorInput12SeedsView(isPassInput12Seed: $isPassInput12Seed,text: $string12SeedText, textHide: "", bkt: "", titleKey: "Enter your 12 seeds separated by spaces")
+            //view nhập 12 từ vào
+            if (self.isShow_OldWalletView == false){
+                VStack(alignment: .center) {
+                    Text("Recovery Your Wallet").font(.title)
                     
-                }
-               
-                
-              
-                
-                //nut next tơi view tiếp theo genegate lại ví củ theo 12 từ
-                //===nút đi tới recovery wallet view của gói API 4===//
-                if(isPassInput12Seed == true){
-                    NavigationLink(destination:  TaoLaiWalletTu12SeedView(string12SeedText: $string12SeedText,
-                                                                          userPassRecoveryWalletby12Seed: $userPassRecoveryWalletby12Seed,
-                                                                          wallNewName: $wallNewName))
-                    {
-                        Text("Get Wallet")
-                            .foregroundColor(.white)
-                            .padding(12)
+                    Text("Enter your 12 seeds separated by spaces:")
+                    
+                    //text editor cho phep user nhập 12 từ và che dấu khi cần
+                    HStack{
+                        Input12SeedsView(isPassInput12Seed: $isPassInput12Seed,text: $string12SeedText, textHide: "", bkt: "", titleKey: "Enter your 12 seeds separated by spaces")
                         
                     }
-                    .background(Color.black)
-                    .cornerRadius(12)
+                    
+                    
+                    
+                    //===nút đi tới OldWalletView===//
+                    if(isPassInput12Seed == true){
+                        Button(action: {
+                            self.isShow_OldWalletView = true
+                        }) {
+                            VStack {
+                                Text("Get Wallet")
+                                    .padding()
+                                    .foregroundColor(.white)
+                                    .background(Color.green)
+                            }
+                            .padding(5)
+                            .accentColor(Color(.red))
+                        }
+                        
+                    }
+                    
+                    
+                    
+                }
+                .padding(.bottom,10)
+                
+            }
+            
+            //nếu user pass nhập đúng 12 từ thì show tiếp OldWalletView
+            if (self.isShow_OldWalletView == true){
+                VStack(alignment: .center) {
+                    OldWalletView(string12SeedText: $string12SeedText,
+                                  userPassRecoveryWalletby12Seed: $userPassRecoveryWalletby12Seed,
+                                  wallNewName: $wallNewName)
                 }
             }
-            .padding(.bottom,10)
             
-        }
-        
+           
+        }//end if
     }
     
     
