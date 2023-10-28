@@ -158,24 +158,24 @@ struct Input12SeedsView: View {
                     }
                     .padding(.horizontal)
                 }
-                
-            }//end vstack
-            //===nút đi tới OldWalletView , nut này cần kick hoat bang QR hay nhap đủ 12 từ===//
-            if(isShow_NextButton == true){
-                Button(action: {
-                    self.isPassInput12Seed = true
-                }) {
-                    VStack {
-                        Text("Get Wallet")
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.green)
+                //===nút đi tới OldWalletView , nut này cần kick hoat bang QR hay nhap đủ 12 từ===//
+                if(self.isShow_NextButton == true){
+                    Button(action: {
+                        self.isPassInput12Seed = true
+                    }) {
+                        VStack {
+                            Text("Get Wallet")
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.green)
+                        }
+                        .padding(5)
+                        .accentColor(Color(.red))
                     }
-                    .padding(5)
-                    .accentColor(Color(.red))
+                    
                 }
-                
-            }
+            }//end vstack
+           
             
         }//end if
         
