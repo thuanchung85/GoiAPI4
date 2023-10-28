@@ -160,26 +160,26 @@ struct Input12SeedsView: View {
                 }
                 
             }//end vstack
-            
+            //===nút đi tới OldWalletView , nut này cần kick hoat bang QR hay nhap đủ 12 từ===//
+            if(isShow_NextButton == true){
+                Button(action: {
+                    self.isPassInput12Seed = true
+                }) {
+                    VStack {
+                        Text("Get Wallet")
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.green)
+                    }
+                    .padding(5)
+                    .accentColor(Color(.red))
+                }
+                
+            }
             
         }//end if
         
-        //===nút đi tới OldWalletView , nut này cần kick hoat bang QR hay nhap đủ 12 từ===//
-        if(isShow_NextButton == true){
-            Button(action: {
-                self.isPassInput12Seed = true
-            }) {
-                VStack {
-                    Text("Get Wallet")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.green)
-                }
-                .padding(5)
-                .accentColor(Color(.red))
-            }
-            
-        }
+        
     }//end body
 }
 
