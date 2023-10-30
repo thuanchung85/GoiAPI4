@@ -54,7 +54,7 @@ struct QR_ScannerView: View {
                        
                         RoundedRectangle(cornerRadius: 2,style: .circular)
                             .trim(from: 0.61,to: 0.64)
-                            .stroke(Color.blue,style: StrokeStyle(lineWidth: 5,lineCap: .round,lineJoin: .round))
+                            .stroke(Color.green,style: StrokeStyle(lineWidth: 5,lineCap: .round,lineJoin: .round))
                             .rotationEffect(.init(degrees: rotation))
                     }
                 }
@@ -72,9 +72,13 @@ struct QR_ScannerView: View {
                 isShow_ScanQRcodeView = false
             } label: {
                 Text("BACK")
-                    .font(.body)
+                    .frame(width: 120)
+                    .padding()
+                    .foregroundColor(.white)
             }
-            .padding(10)
+            .background(Color.green)
+            .cornerRadius(30)
+            .padding(.bottom,10)
             
         }//end VStack
         .padding(15)
