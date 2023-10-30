@@ -44,7 +44,7 @@ public struct RecoverWallet_View: View {
             if (self.isPassInput12Seed == true){
                 OldWalletView(string12SeedText: $string12SeedText,
                               isPassOldWalletView: $isPassOldWalletView,
-                              wallNewName: $wallNewName)
+                              wallNewName: $wallNewName, isPassInput12Seed: $isPassInput12Seed)
             }//end if
         }
         

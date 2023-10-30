@@ -16,12 +16,14 @@ public struct OldWalletView: View {
     
     @Binding var isPassOldWalletView:Bool
     @Binding var wallNewName:String
+    @Binding var isPassInput12Seed:Bool
     
     //===INIT==//
-    public init(string12SeedText:Binding<String>, isPassOldWalletView:Binding<Bool>,wallNewName:Binding<String>) {
+    public init(string12SeedText:Binding<String>, isPassOldWalletView:Binding<Bool>,wallNewName:Binding<String>, isPassInput12Seed:Binding<Bool>) {
         self._string12SeedText = string12SeedText
         self._isPassOldWalletView = isPassOldWalletView
         self._wallNewName = wallNewName
+        self._isPassInput12Seed = isPassInput12Seed
     }
     
     //==BODY==//
@@ -55,7 +57,9 @@ public struct OldWalletView: View {
                             .padding(.horizontal)
                         //nut next để user pass khỏi quá trình này
                         Button {
+                            isPassInput12Seed = false
                             isPassOldWalletView = false
+                            
                         } label: {
                             Text("TRY AGAIN")
                                 .font(.body)
