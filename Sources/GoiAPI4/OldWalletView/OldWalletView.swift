@@ -66,7 +66,7 @@ public struct OldWalletView: View {
                                         .padding(.bottom,10)
                                         
                                     }
-                                
+                                    .padding(10)
                         }
                     
                 }
