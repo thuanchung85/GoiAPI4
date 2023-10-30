@@ -50,26 +50,40 @@ public struct OldWalletView: View {
                 }
                 //nếu generate ví xong thì show ra mã QR
                 else{
-                    ScrollView{
-                        //Choose View
-                        VStack(alignment: .center) {
-                            Text("THIS IS YOUR WALLET").font(.title)
-                            
-                            TextField("Enter new name", text: $wallNewName)
+                    if(self.addressWallet == "no data"){
+                        Text("YOUR 12 SEED WORDS IS NOT CORRECT, PLEASE TRY AGAIN!").font(.title)
+                            .padding(.horizontal)
+                        //nut next để user pass khỏi quá trình này
+                        Button {
+                            isPassOldWalletView = false
+                        } label: {
+                            Text("TRY AGAIN")
                                 .font(.body)
-                                .textFieldStyle(.roundedBorder)
-                                .padding(5)
-                            QRCodeMakerView( walletAddress: $addressWallet,width: 300,height: 300)
                             
-                            //nut next để user pass khỏi quá trình này
-                            Button {
-                                isPassOldWalletView = true
-                            } label: {
-                                Text("NEXT!")
+                        }
+                    }
+                    else{
+                        ScrollView{
+                            //Choose View
+                            VStack(alignment: .center) {
+                                Text("THIS IS YOUR WALLET").font(.title)
+                                
+                                TextField("Enter new name", text: $wallNewName)
                                     .font(.body)
+                                    .textFieldStyle(.roundedBorder)
+                                    .padding(5)
+                                QRCodeMakerView( walletAddress: $addressWallet,width: 300,height: 300)
+                                
+                                //nut next để user pass khỏi quá trình này
+                                Button {
+                                    isPassOldWalletView = true
+                                } label: {
+                                    Text("NEXT!")
+                                        .font(.body)
+                                    
+                                }
                                 
                             }
-                            
                         }
                     }
                 }
