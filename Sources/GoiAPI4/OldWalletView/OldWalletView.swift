@@ -40,7 +40,7 @@ public struct OldWalletView: View {
                                
                                     VStack(alignment: .center) {
                                         Text("YOUR WALLET SUCCESSFULLY RESTORED")
-                                            .frame(width: 400)
+                                            .frame(width: 250)
                                             .font(.custom("Arial ", size: 18))
                                             .padding(.top,10)
                                             .padding(.horizontal,5)
@@ -66,8 +66,7 @@ public struct OldWalletView: View {
                                         .padding(.bottom,10)
                                         
                                     }
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                    .padding(10)
+                                   
                         }
                     
                 }
