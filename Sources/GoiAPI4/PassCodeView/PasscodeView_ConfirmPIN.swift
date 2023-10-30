@@ -4,7 +4,7 @@ import SwiftUI
 
 public struct PasscodeView_ConfirmPIN : View {
     
-    @Binding var isUserPass_PIN_making:Bool
+    @Binding var isUserPassRecoveryWalletby12Seed:Bool
     
     @Binding var walletName:String
     @State var password:String = ""
@@ -14,10 +14,10 @@ public struct PasscodeView_ConfirmPIN : View {
     
     var textAskUserDo:String
     
-    public init(textAskUserDo:String,walletName: Binding<String>, isUserPass_PIN_making:Binding<Bool>) {
+    public init(textAskUserDo:String,walletName: Binding<String>, isUserPassRecoveryWalletby12Seed:Binding<Bool>) {
         self._walletName = walletName
         self.textAskUserDo = textAskUserDo
-        self._isUserPass_PIN_making = isUserPass_PIN_making
+        self._isUserPassRecoveryWalletby12Seed = isUserPassRecoveryWalletby12Seed
     }
     
     public var body: some View{
@@ -102,12 +102,12 @@ public struct PasscodeView_ConfirmPIN : View {
                     
                     ForEach(1...9,id: \.self){value in
                         
-                        PasswordButton3(value: "\(value)",password: $password, passwordBuoc1: $passwordBuoc1, walletName: $walletName, isUserPass_PIN_making: $isUserPass_PIN_making)
+                        PasswordButton3(value: "\(value)",password: $password, passwordBuoc1: $passwordBuoc1, walletName: $walletName, isUserPass_PIN_making: $isUserPassRecoveryWalletby12Seed)
                     }
                     
-                    PasswordButton3(value: "delete.fill",password: $password, passwordBuoc1: $passwordBuoc1, walletName: $walletName, isUserPass_PIN_making: $isUserPass_PIN_making)
+                    PasswordButton3(value: "delete.fill",password: $password, passwordBuoc1: $passwordBuoc1, walletName: $walletName, isUserPass_PIN_making: $isUserPassRecoveryWalletby12Seed)
                     
-                    PasswordButton3(value: "0", password: $password, passwordBuoc1: $passwordBuoc1, walletName: $walletName, isUserPass_PIN_making: $isUserPass_PIN_making)
+                    PasswordButton3(value: "0", password: $password, passwordBuoc1: $passwordBuoc1, walletName: $walletName, isUserPass_PIN_making: $isUserPassRecoveryWalletby12Seed)
                 }
                 .padding(.bottom)
                 

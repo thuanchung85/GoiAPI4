@@ -14,13 +14,13 @@ public struct OldWalletView: View {
    
     @State var isStillLoadingWallet = true
     
-    @Binding var userPassRecoveryWalletby12Seed:Bool
+    @Binding var isPassOldWalletView:Bool
     @Binding var wallNewName:String
     
     //===INIT==//
-    public init(string12SeedText:Binding<String>, userPassRecoveryWalletby12Seed:Binding<Bool>,wallNewName:Binding<String>) {
+    public init(string12SeedText:Binding<String>, isPassOldWalletView:Binding<Bool>,wallNewName:Binding<String>) {
         self._string12SeedText = string12SeedText
-        self._userPassRecoveryWalletby12Seed = userPassRecoveryWalletby12Seed
+        self._isPassOldWalletView = isPassOldWalletView
         self._wallNewName = wallNewName
     }
     
@@ -63,7 +63,7 @@ public struct OldWalletView: View {
                             
                             //nut next để user pass khỏi quá trình này
                             Button {
-                                userPassRecoveryWalletby12Seed = true
+                                isPassOldWalletView = true
                             } label: {
                                 Text("NEXT!")
                                     .font(.body)

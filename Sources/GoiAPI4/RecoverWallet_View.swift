@@ -12,12 +12,12 @@ public struct RecoverWallet_View: View {
    @State var isPassInput12Seed = false
     @State var isPassOldWalletView = false
     
-    @Binding var userPassRecoveryWalletby12Seed:Bool
+    @Binding var isUserPassRecoveryWalletby12Seed:Bool
     @Binding var wallNewName:String
  
     
-    public init(userPassRecoveryWalletby12Seed:Binding<Bool>, wallNewName:Binding<String>) {
-        self._userPassRecoveryWalletby12Seed = userPassRecoveryWalletby12Seed
+    public init(isUserPassRecoveryWalletby12Seed:Binding<Bool>, wallNewName:Binding<String>) {
+        self._isUserPassRecoveryWalletby12Seed = isUserPassRecoveryWalletby12Seed
         self._wallNewName = wallNewName
 
     }
@@ -41,7 +41,7 @@ public struct RecoverWallet_View: View {
             //nếu user pass nhập đúng 12 từ thì show tiếp OldWalletView
             if (self.isPassInput12Seed == true){
                     OldWalletView(string12SeedText: $string12SeedText,
-                                  userPassRecoveryWalletby12Seed: $userPassRecoveryWalletby12Seed,
+                                  isPassOldWalletView: $isPassOldWalletView,
                                   wallNewName: $wallNewName)
             }//end if
             
@@ -49,7 +49,7 @@ public struct RecoverWallet_View: View {
         if(self.isPassOldWalletView == true){
             PasscodeView_ConfirmPIN(textAskUserDo: "Enter PIN Number for your wallet",
                                     walletName:  $wallNewName,
-                                    isUserPass_PIN_making: $userPassRecoveryWalletby12Seed)
+                                    isUserPassRecoveryWalletby12Seed: $isUserPassRecoveryWalletby12Seed)
         }
        
     }//end body
