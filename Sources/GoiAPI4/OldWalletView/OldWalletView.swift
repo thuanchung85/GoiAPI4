@@ -66,6 +66,7 @@ public struct OldWalletView: View {
                                         .padding(.bottom,10)
                                         
                                     }
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                                     .padding(10)
                         }
                     
