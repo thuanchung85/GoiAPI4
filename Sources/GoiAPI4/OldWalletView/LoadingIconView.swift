@@ -53,7 +53,7 @@ struct LoadingView<Content>: View where Content: View {
                 //genegater 12 từ
                 .onAppear(){
                     
-                    DispatchQueue.global().async {
+                    DispatchQueue.global(qos: .userInteractive).async {
                         let myWallet = Wallet()
                         var recoverString = self.string12SeedText
                         if (recoverString.last == " ")
