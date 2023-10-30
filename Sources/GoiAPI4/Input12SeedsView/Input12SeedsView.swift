@@ -80,9 +80,10 @@ struct Input12SeedsView: View {
                                             isShow_NextButton = false
                                         }
                                     }
+                                    .cornerRadius(5)
                                     .background(Color.gray)
                                     .frame(width: 350, height: 100)
-                                    .border(Color.black, width: 1)
+                                    .border(Color.green, width: 1)
                                     .opacity(isSecure ? 0:1)
                                 
                                 //nếu isSecure == true hiện red
@@ -94,10 +95,10 @@ struct Input12SeedsView: View {
                                         
                                         //print("đỏ : bkt", bkt)
                                     }
-                                    .foregroundColor(.red)
-                                    .background(Color.red)
+                                    .cornerRadius(5)
+                                    .background(Color.gray)
                                     .frame(width: 350, height: 100)
-                                    .border(Color.red, width: 1)
+                                    .border(Color.green, width: 1)
                                     .opacity(isSecure ? 1:0)
                                     .disabled(true)
                             }
