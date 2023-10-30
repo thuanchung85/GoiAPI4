@@ -41,7 +41,7 @@ public struct QRCodeMakerView: View {
                     .frame(width: 300, height: 300)
                 
                 Text("Wallet address: \n" + self.walletAddress)
-                   .frame(width: 250)
+                   .frame(width: 350)
                     .font(.custom("Arial ", size: 20))
                     .minimumScaleFactor(0.05)
                     .padding(.top,5)
