@@ -63,7 +63,6 @@ struct Input12SeedsView: View {
                     HStack{
                         Group{
                             ZStack{
-                                
                                 //nếu isSecure == false hiện đen
                                 TextEditor(text: $text)
                                     .onChange(of: text) { newValue in
@@ -80,10 +79,7 @@ struct Input12SeedsView: View {
                                             isShow_NextButton = false
                                         }
                                     }
-                                    .cornerRadius(5)
-                                    .background(Color.gray)
                                     .frame(width: 350, height: 100)
-                                    .border(Color.green, width: 1)
                                     .opacity(isSecure ? 0:1)
                                 
                                 //nếu isSecure == true hiện red
@@ -92,16 +88,18 @@ struct Input12SeedsView: View {
                                         textHide = bkt.map({ Character in
                                             return "*"
                                         }).joined()
-                                        
-                                        //print("đỏ : bkt", bkt)
                                     }
-                                    .cornerRadius(5)
-                                    .background(Color.gray)
+                                    
                                     .frame(width: 350, height: 100)
-                                    .border(Color.green, width: 1)
                                     .opacity(isSecure ? 1:0)
                                     .disabled(true)
                             }
+                            .cornerRadius(5)
+                            .background(Color.gray.opacity(0.2))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.green, lineWidth: 1)
+                            )
                             
                         }.textFieldStyle(.roundedBorder)
                             .animation(.easeInOut(duration: 0.2), value: isSecure)
