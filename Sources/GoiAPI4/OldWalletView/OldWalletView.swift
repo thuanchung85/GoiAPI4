@@ -40,7 +40,9 @@ public struct OldWalletView: View {
                             VStack(alignment: .center) {
                                
                                 HStack(alignment: .center){
-                                    Text("THIS IS YOUR WALLET").font(.title)
+                                    Text("YOUR WALLET SUCCESSFULLY RESTORED")
+                                        .font(.custom("Arial ", size: 20))
+                                        .padding(.top,10)
                                         .padding(.horizontal)
                                 }.padding(.bottom,30)
                                
@@ -76,22 +78,30 @@ public struct OldWalletView: View {
                         ScrollView{
                             //Choose View
                             VStack(alignment: .center) {
-                                Text("THIS IS YOUR WALLET").font(.title)
+                                Text("YOUR WALLET SUCCESSFULLY RESTORED")
+                                    .font(.custom("Arial ", size: 20))
+                                    .padding(.top,10)
+                                    .padding(.horizontal)
                                 
-                                TextField("Enter new name", text: $wallNewName)
+                                TextField("Re-enter your wallet name", text: $wallNewName)
                                     .font(.body)
                                     .textFieldStyle(.roundedBorder)
                                     .padding(5)
+                                
                                 QRCodeMakerView( walletAddress: $addressWallet,width: 300,height: 300)
                                 
                                 //nut next để user pass khỏi quá trình này
                                 Button {
                                     isPassOldWalletView = true
                                 } label: {
-                                    Text("NEXT!")
-                                        .font(.body)
-                                    
+                                    Text("NEXT")
+                                        .frame(width: 120)
+                                        .padding()
+                                        .foregroundColor(.white)
                                 }
+                                .background(Color.green)
+                                .cornerRadius(30)
+                                .padding(.bottom,10)
                                 
                             }
                         }
