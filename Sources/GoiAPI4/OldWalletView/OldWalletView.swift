@@ -28,7 +28,7 @@ public struct OldWalletView: View {
     
     //==BODY==//
     public var body: some View{
-           
+          
                 //nếu chưa re generate  ví xong thì còn show hình mờ
                 if(isStillLoadingWallet == true){
                         LoadingView(addressWallet: $addressWallet,
@@ -37,9 +37,7 @@ public struct OldWalletView: View {
                                     isShowing:  $isStillLoadingWallet)
                         {
                             //View giả bị che mờ , nó không có tác dụng gì, không tương tác
-                            HStack(alignment: .center)
-                            {
-                                VStack(alignment: .center) {
+                               
                                     VStack(alignment: .center) {
                                         Text("YOUR WALLET SUCCESSFULLY RESTORED")
                                             .frame(width: 400)
@@ -68,8 +66,7 @@ public struct OldWalletView: View {
                                         .padding(.bottom,10)
                                         
                                     }
-                                }
-                            }
+                                
                         }
                     
                 }
