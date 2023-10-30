@@ -38,14 +38,11 @@ public struct OldWalletView: View {
                         {
                             //Choose View
                             VStack(alignment: .center) {
-                               
-                                HStack(alignment: .center){
-                                    Text("YOUR WALLET SUCCESSFULLY RESTORED")
-                                        .font(.custom("Arial ", size: 20))
-                                        .padding(.top,10)
-                                        .padding(.horizontal)
-                                }.padding(.bottom,30)
-                               
+                                Text("YOUR WALLET SUCCESSFULLY RESTORED")
+                                    .frame(width: 200)
+                                    .font(.custom("Arial ", size: 18))
+                                    .padding(.top,10)
+                                    .padding(.horizontal,5)
                                 Spacer()
                             }
                             
@@ -79,6 +76,7 @@ public struct OldWalletView: View {
                             //Choose View
                             VStack(alignment: .center) {
                                 Text("YOUR WALLET SUCCESSFULLY RESTORED")
+                                    .frame(width: 200)
                                     .font(.custom("Arial ", size: 18))
                                     .padding(.top,10)
                                     .padding(.horizontal,5)
