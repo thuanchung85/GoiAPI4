@@ -39,7 +39,7 @@ public struct OldWalletView: View {
                             //View giả bị che mờ , nó không có tác dụng gì, không tương tác
                             VStack(alignment: .center) {
                                 Text("YOUR WALLET SUCCESSFULLY RESTORED")
-                                    .frame(width: 200)
+                                    .frame(width: 400)
                                     .font(.custom("Arial ", size: 18))
                                     .padding(.top,10)
                                     .padding(.horizontal,5)
@@ -76,7 +76,7 @@ public struct OldWalletView: View {
                             //Choose View
                             VStack(alignment: .center) {
                                 Text("YOUR WALLET SUCCESSFULLY RESTORED")
-                                    .frame(width: 200)
+                                    .frame(width: 400)
                                     .font(.custom("Arial ", size: 18))
                                     .padding(.top,10)
                                     .padding(.horizontal,5)
