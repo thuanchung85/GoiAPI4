@@ -171,7 +171,7 @@ struct Input12SeedsView: View {
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 20)
                                             .stroke(style: StrokeStyle(lineWidth: 1, dash: [2]))
-                                                       .foregroundColor(Color(UIColor.blue))
+                                                       .foregroundColor(Color(UIColor.green))
                                         
                                     )
                             }
