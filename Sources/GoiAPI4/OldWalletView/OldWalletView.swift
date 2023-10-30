@@ -44,6 +44,7 @@ public struct OldWalletView: View {
                                             .font(.custom("Arial ", size: 18))
                                             .padding(.top,10)
                                             .padding(.horizontal,5)
+                                            .multilineTextAlignment(.center)
                                         
                                         TextField("Re-enter your wallet name", text: $wallNewName)
                                             .font(.custom("Arial ", size: 15))
@@ -97,10 +98,12 @@ public struct OldWalletView: View {
                             //Choose View
                             VStack(alignment: .center) {
                                 Text("YOUR WALLET SUCCESSFULLY RESTORED")
-                                    .frame(width: 400)
+                                    .frame(width: 300)
                                     .font(.custom("Arial ", size: 18))
                                     .padding(.top,10)
                                     .padding(.horizontal,5)
+                                    .multilineTextAlignment(.center)
+                                    .minimumScaleFactor(0.05)
                                 
                                 TextField("Re-enter your wallet name", text: $wallNewName)
                                     .font(.custom("Arial ", size: 15))
