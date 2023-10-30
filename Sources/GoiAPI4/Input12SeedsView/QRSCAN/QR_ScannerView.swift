@@ -73,8 +73,8 @@ struct QR_ScannerView: View {
             } label: {
                 Text("BACK")
                     .font(.body)
-                
             }
+            .padding(10)
             
         }//end VStack
         .padding(15)
