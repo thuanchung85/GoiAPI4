@@ -40,10 +40,11 @@ public struct QRCodeMakerView: View {
                     .scaledToFit()
                     .frame(width: 300, height: 300)
                 
-                Text("Wallet address: " + self.walletAddress)
+                Text("Wallet address: \n" + self.walletAddress)
                     .font(.body)
                     .scaledToFit()
                     .minimumScaleFactor(0.01)
+                    .padding(.top,5)
                 
                 Button {
                     print("Copy Button was tapped save to clipbroad")
@@ -52,10 +53,11 @@ public struct QRCodeMakerView: View {
                                                       forPasteboardType: UTType.plainText.identifier)
                    
                 } label: {
-                    Text("Copy!")
+                    Text("Copy")
                         .font(.body)
                        
                 }
+                .padding(.vertical,10)
             }
            
         }
