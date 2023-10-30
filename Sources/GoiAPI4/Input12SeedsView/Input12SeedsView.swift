@@ -146,9 +146,9 @@ struct Input12SeedsView: View {
                     //==Khung 12 từ===//
                     //12 từ trong khung bên dưới khi user nhập chuổi ở trên thì auto load vào dưa theo khoảng cách trong chuoi text
                     if(traRaChuoi(data12Words: data12Words, text: text).contains("You input over 12 words, please check again!") == true){
-                        Text("You input over 12 words, please check again!")
+                        Text("You entered more than 12 words, please check again!")
                             .frame(width: 300)
-                            .font(.body)
+                            .font(.custom("Arial ", size: 15))
                             .foregroundColor(.red)
                             .padding()
                             .scaledToFit()
