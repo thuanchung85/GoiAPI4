@@ -95,11 +95,10 @@ struct Input12SeedsView: View {
                                     .disabled(true)
                             }
                             .cornerRadius(5)
-                            .background(Color.gray.opacity(0.2))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 5)
                                     .stroke(.green, lineWidth: 1)
-                            ) .background(Color.gray.opacity(0.2))
+                            )
                             
                         }.textFieldStyle(.roundedBorder)
                             .animation(.easeInOut(duration: 0.2), value: isSecure)
