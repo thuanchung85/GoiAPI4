@@ -53,8 +53,10 @@ public struct OldWalletView: View {
                 //nếu generate ví xong thì show ra mã QR
                 else{
                     if(self.addressWallet == "no data"){
-                        Text("YOUR 12 SEED WORDS IS NOT CORRECT, PLEASE TRY AGAIN!").font(.title)
-                            .padding(.horizontal)
+                        Text("Your 12 word backup phrase does not work, please try another!")
+                            .font(.custom("Arial ", size: 20))
+                            .multilineTextAlignment(.center)
+                            .padding(20)
                         //nut next để user pass khỏi quá trình này
                         Button {
                             isPassInput12Seed = false
@@ -62,9 +64,13 @@ public struct OldWalletView: View {
                             
                         } label: {
                             Text("TRY AGAIN")
-                                .font(.body)
-                            
+                                .frame(width: 120)
+                                .padding()
+                                .foregroundColor(.white)
                         }
+                        .background(Color.green)
+                        .cornerRadius(30)
+                        .padding(.bottom,10)
                     }
                     else{
                         ScrollView{
