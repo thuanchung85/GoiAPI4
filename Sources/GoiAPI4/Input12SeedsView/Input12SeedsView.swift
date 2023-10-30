@@ -217,7 +217,7 @@ func traRaChuoi(data12Words:[String], text:String, isSecure:Bool? = false)->[Str
         let arrRWithIndex = combin2Array.enumerated()
         let arrX = arrRWithIndex.map({ eO in
             if(isSecure! == true){
-                return "\(eO.offset + 1). " +  String(eO.element.1.reversed())
+                return "\(eO.offset + 1). " +  String(eO.element.1.map{_ in "*"})
             }
             else{
                 return "\(eO.offset + 1). " + eO.element.1
