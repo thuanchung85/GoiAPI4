@@ -67,7 +67,14 @@ struct QR_ScannerView: View {
             
             Spacer(minLength: 15)
             
-           
+            //nut next để user pass khỏi quá trình này
+            Button {
+                isShow_ScanQRcodeView = false
+            } label: {
+                Text("BACK")
+                    .font(.body)
+                
+            }
             
         }//end VStack
         .padding(15)

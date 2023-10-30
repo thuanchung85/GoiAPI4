@@ -42,6 +42,8 @@ public struct QRCodeMakerView: View {
                 
                 Text("Wallet address: " + self.walletAddress)
                     .font(.body)
+                    .scaledToFit()
+                    .minimumScaleFactor(0.01)
                 
                 Button {
                     print("Copy Button was tapped save to clipbroad")
