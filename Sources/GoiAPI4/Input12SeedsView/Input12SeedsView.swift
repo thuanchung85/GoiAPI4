@@ -159,16 +159,19 @@ struct Input12SeedsView: View {
                             ForEach(traRaChuoi(data12Words: data12Words, text: text, isSecure: isSecure), id: \.self) { item in
                                 
                                 Text(item)
+                                    .background(Color.gray.opacity(0.1))
+                                    .cornerRadius(20)
                                     .frame(width: 130)
-                                    .font(.body)
-                                    .foregroundColor(!isSecure ? .blue:.red)
+                                    .font(.custom("Arial ", size: 20))
+                                    .foregroundColor(.black)
                                     .padding()
-                                    .border(!isSecure ? .blue:.red)
-                                    .cornerRadius(5)
                                     .lineLimit(1)
                                     .scaledToFit()
                                     .minimumScaleFactor(0.01)
-                                
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .stroke(.green, lineWidth: 1)
+                                    )
                             }
                         }
                         .padding(.horizontal)
