@@ -33,7 +33,7 @@ public struct RecoverWallet_View: View {
                 //text editor cho phep user nhập 12 từ và che dấu khi cần
                 Input12SeedsView(isPassInput12Seed: $isPassInput12Seed,
                                  text: $string12SeedText,
-                                 textHide: "", bkt: "", titleKey: "Enter your 12 seeds separated by spaces")
+                                 textHide: "", bkt: "", titleKey: "Enter your 12-seed phrase, separated by spaces")
                 
                 
                 

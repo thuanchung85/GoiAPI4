@@ -49,9 +49,15 @@ struct Input12SeedsView: View {
         {
             ScrollView{
                 VStack{
-                    Text("Recovery Your Wallet").font(.title)
+                    Text("Recovery Wallet")
+                        .font(.custom("Arial ", size: 20))
+                        .padding(.top,10)
                     
-                    Text("Enter your 12 seeds separated by spaces:")
+                    Text(titleKey)
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                        .padding(.top,10)
+                    
                     
                     //===chổ nhập 12 từ====///
                     HStack{
