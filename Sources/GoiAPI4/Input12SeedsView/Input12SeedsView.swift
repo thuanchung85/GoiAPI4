@@ -114,7 +114,9 @@ struct Input12SeedsView: View {
                             self.isShow_ScanQRcodeView = true
                         } label: {
                             Text("Scan QR code")
-                                .font(.body)
+                                .font(.footnote)
+                                .foregroundColor(.gray)
+                                
                         }
                         
                         Spacer()
@@ -134,6 +136,8 @@ struct Input12SeedsView: View {
                                 }
                             }, label: {
                                 Image(systemName: !isSecure ? "eye.slash" : "eye" )
+                                    .foregroundColor(.green)
+                                    .padding(.top,10)
                             })
                         }
                     }
