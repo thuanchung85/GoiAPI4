@@ -30,7 +30,7 @@ struct LoadingView<Content>: View where Content: View {
 
     var body: some View {
         GeometryReader { geometry in
-            VStack(alignment: .center) {
+            //VStack(alignment: .center) {
                 ZStack(alignment: .center) {
                     
                     self.content()
@@ -70,8 +70,8 @@ struct LoadingView<Content>: View where Content: View {
                     }
                     
                 }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            //}
+            //.frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 
