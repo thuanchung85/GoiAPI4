@@ -36,7 +36,7 @@ public struct OldWalletView: View {
                                     string12SeedText : string12SeedText,
                                     isShowing:  $isStillLoadingWallet)
                         {
-                            //Choose View
+                            //View giả bị che mờ , nó không có tác dụng gì, không tương tác
                             VStack(alignment: .center) {
                                 Text("YOUR WALLET SUCCESSFULLY RESTORED")
                                     .frame(width: 200)
