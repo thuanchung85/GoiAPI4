@@ -79,12 +79,12 @@ public struct OldWalletView: View {
                             //Choose View
                             VStack(alignment: .center) {
                                 Text("YOUR WALLET SUCCESSFULLY RESTORED")
-                                    .font(.custom("Arial ", size: 20))
+                                    .font(.custom("Arial ", size: 18))
                                     .padding(.top,10)
-                                    .padding(.horizontal)
+                                    .padding(.horizontal,5)
                                 
                                 TextField("Re-enter your wallet name", text: $wallNewName)
-                                    .font(.body)
+                                    .font(.custom("Arial ", size: 15))
                                     .textFieldStyle(.roundedBorder)
                                     .padding(5)
                                 
