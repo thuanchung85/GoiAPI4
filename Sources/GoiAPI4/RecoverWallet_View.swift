@@ -14,12 +14,12 @@ public struct RecoverWallet_View: View {
     
     @Binding var userPassRecoveryWalletby12Seed:Bool
     @Binding var wallNewName:String
-    @Binding var isUserPass_PIN_making_RecoverWallet : Bool
+ 
     
-    public init(userPassRecoveryWalletby12Seed:Binding<Bool>, wallNewName:Binding<String>, isUserPass_PIN_making_RecoverWallet:Binding<Bool>) {
+    public init(userPassRecoveryWalletby12Seed:Binding<Bool>, wallNewName:Binding<String>) {
         self._userPassRecoveryWalletby12Seed = userPassRecoveryWalletby12Seed
         self._wallNewName = wallNewName
-        self._isUserPass_PIN_making_RecoverWallet = isUserPass_PIN_making_RecoverWallet
+
     }
     
     public var body: some View{
@@ -49,7 +49,7 @@ public struct RecoverWallet_View: View {
         if(self.isPassOldWalletView == true){
             PasscodeView_ConfirmPIN(textAskUserDo: "Enter PIN Number for your wallet",
                                     walletName:  $wallNewName,
-                                    isUserPass_PIN_making: $isUserPass_PIN_making_RecoverWallet)
+                                    isUserPass_PIN_making: $userPassRecoveryWalletby12Seed)
         }
        
     }//end body
