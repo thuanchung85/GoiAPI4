@@ -24,28 +24,32 @@ public struct RecoverWallet_View: View {
     
     public var body: some View{
        
+        //mới vô hiện view cho user nhập 12 từ hoặc scan qr
+        if(self.isPassOldWalletView == false){
             //view nhập 12 từ vào
             if (self.isPassInput12Seed == false){
-               
-                    
-                    //text editor cho phep user nhập 12 từ và che dấu khi cần
-                    Input12SeedsView(isPassInput12Seed: $isPassInput12Seed,
-                                         text: $string12SeedText,
-                                         textHide: "", bkt: "", titleKey: "Enter your 12 seeds separated by spaces")
-                        
-                    
-               
-              
+                
+                
+                //text editor cho phep user nhập 12 từ và che dấu khi cần
+                Input12SeedsView(isPassInput12Seed: $isPassInput12Seed,
+                                 text: $string12SeedText,
+                                 textHide: "", bkt: "", titleKey: "Enter your 12 seeds separated by spaces")
+                
+                
+                
+                
             }//end if
             
             //nếu user pass nhập đúng 12 từ thì show tiếp OldWalletView
             if (self.isPassInput12Seed == true){
-                    OldWalletView(string12SeedText: $string12SeedText,
-                                  isPassOldWalletView: $isPassOldWalletView,
-                                  wallNewName: $wallNewName)
+                OldWalletView(string12SeedText: $string12SeedText,
+                              isPassOldWalletView: $isPassOldWalletView,
+                              wallNewName: $wallNewName)
             }//end if
-            
-           //nếu user pass view tạo lại ví củ thì cho nhập passcode
+        }
+        
+        
+        //nếu user pass view tạo lại ví củ thì cho nhập passcode
         if(self.isPassOldWalletView == true){
             PasscodeView_ConfirmPIN(textAskUserDo: "Enter PIN Number for your wallet",
                                     walletName:  $wallNewName,
