@@ -37,37 +37,39 @@ public struct OldWalletView: View {
                                     isShowing:  $isStillLoadingWallet)
                         {
                             //View giả bị che mờ , nó không có tác dụng gì, không tương tác
-                            VStack(alignment: .center) {
+                            HStack(alignment: .center)
+                            {
                                 VStack(alignment: .center) {
-                                    Text("YOUR WALLET SUCCESSFULLY RESTORED")
-                                        .frame(width: 400)
-                                        .font(.custom("Arial ", size: 18))
-                                        .padding(.top,10)
-                                        .padding(.horizontal,5)
-                                    
-                                    TextField("Re-enter your wallet name", text: $wallNewName)
-                                        .font(.custom("Arial ", size: 15))
-                                        .textFieldStyle(.roundedBorder)
-                                        .padding(5)
-                                    
-                                    QRCodeMakerView( walletAddress: $addressWallet,width: 300,height: 300)
-                                    
-                                    //nut next để user pass khỏi quá trình này
-                                    Button {
-                                        isPassOldWalletView = true
-                                    } label: {
-                                        Text("NEXT")
-                                            .frame(width: 120)
-                                            .padding()
-                                            .foregroundColor(.white)
+                                    VStack(alignment: .center) {
+                                        Text("YOUR WALLET SUCCESSFULLY RESTORED")
+                                            .frame(width: 400)
+                                            .font(.custom("Arial ", size: 18))
+                                            .padding(.top,10)
+                                            .padding(.horizontal,5)
+                                        
+                                        TextField("Re-enter your wallet name", text: $wallNewName)
+                                            .font(.custom("Arial ", size: 15))
+                                            .textFieldStyle(.roundedBorder)
+                                            .padding(5)
+                                        
+                                        Spacer()
+                                        
+                                        //nut next để user pass khỏi quá trình này
+                                        Button {
+                                            isPassOldWalletView = true
+                                        } label: {
+                                            Text("NEXT")
+                                                .frame(width: 120)
+                                                .padding()
+                                                .foregroundColor(.white)
+                                        }
+                                        .background(Color.green)
+                                        .cornerRadius(30)
+                                        .padding(.bottom,10)
+                                        
                                     }
-                                    .background(Color.green)
-                                    .cornerRadius(30)
-                                    .padding(.bottom,10)
-                                    
                                 }
                             }
-                            
                         }
                     
                 }
