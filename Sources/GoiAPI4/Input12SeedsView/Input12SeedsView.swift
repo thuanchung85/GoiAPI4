@@ -181,16 +181,16 @@ struct Input12SeedsView: View {
                         Button(action: {
                             self.isPassInput12Seed = true
                         }) {
-                            VStack {
+                          
                                 Text("Get Wallet")
-                                    .padding()
-                                    .foregroundColor(.white)
-                                    .background(Color.green)
-                            }
-                            .padding(5)
-                            .accentColor(Color(.red))
+                                .frame(width: 120)
+                                .padding()
+                                .foregroundColor(.white)
+                           
                         }
-                        
+                        .background(Color.green)
+                        .cornerRadius(30)
+                        .padding(.bottom,10)
                     }
                 }//end vstack
                 
