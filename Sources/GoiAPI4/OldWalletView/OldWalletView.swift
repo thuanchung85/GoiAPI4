@@ -115,21 +115,29 @@ public struct OldWalletView: View {
                                 QRCodeMakerView( walletAddress: $addressWallet,width: 300,height: 300)
                                 
                                 //nut next để user pass khỏi quá trình này
-                                Button {
-                                    isPassOldWalletView = true
-                                } label: {
-                                    Text("NEXT")
-                                        .frame(width: 120)
-                                        .padding()
-                                        .foregroundColor(.white)
-                                }
-                                .background(Color.green)
-                                .cornerRadius(30)
-                                .padding(.bottom,10)
-                                
-                            }
-                        }
-                    }
+                                if(self.wallNewName.isEmpty == false){
+                                    Button {
+                                        //save vao2 user default wallet name va addressWallet
+                                        UserDefaults.standard.set( self.wallNewName, forKey: "PoolsWallet_walletName")
+                                        UserDefaults.standard.set( self.addressWallet, forKey: "PoolsWallet_addressWallet")
+                                        
+                                        isPassOldWalletView = true
+                                        
+                                        
+                                    } label: {
+                                        Text("NEXT")
+                                            .frame(width: 120)
+                                            .padding()
+                                            .foregroundColor(.white)
+                                    }
+                                    .background(Color.green)
+                                    .cornerRadius(30)
+                                    .padding(.bottom,10)
+                                    
+                                }//end if
+                            }//end VStack
+                        }//end Scrollview
+                    }//end else
                 }
                 
             
