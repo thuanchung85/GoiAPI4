@@ -14,26 +14,24 @@ public struct PasscodeView_ConfirmPIN : View {
     
     var textAskUserDo:String
     
+    //===INIT====///
     public init(textAskUserDo:String,walletName: Binding<String>, isUserPassRecoveryWalletby12Seed:Binding<Bool>) {
         self._walletName = walletName
         self.textAskUserDo = textAskUserDo
         self._isUserPassRecoveryWalletby12Seed = isUserPassRecoveryWalletby12Seed
     }
     
+    //===BODY====//
     public var body: some View{
         //Bước 1: hiện page cho user nhập mã PIN trước
         if (isShowConFirmPassCodeView == false){
             VStack{
                 
-                Image(systemName: "person")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    .padding(.top,20)
+          
                 
                 Text(textAskUserDo)
-                    .font(.title2)
-                    .fontWeight(.heavy)
-                    .padding(.top,20)
+                    .font(.custom("Arial ", size: 22))
+                    .padding(.top,10)
                 
                 HStack(spacing: 22){
                     
@@ -118,8 +116,10 @@ public struct PasscodeView_ConfirmPIN : View {
                     isShowConFirmPassCodeView = false
                     password.removeAll()
                 } label: {
-                    Text("Reset your Passcode!")
-                        .font(.body)
+                    Text("Reset your pin number!")
+                        .font(.custom("Arial ", size: 15))
+                        .padding(.top,10)
+                        .foregroundColor(.green)
                        
                 }
             }
@@ -141,8 +141,8 @@ struct PasswordView2 : View {
         ZStack{
             
             Circle()
-                .stroke(Color.blue,lineWidth: 2)
-                .frame(width: 30, height: 30)
+                .stroke(Color.blue,lineWidth: 1)
+                .frame(width: 25, height: 25)
             
             // checking whether it is typed...
             
@@ -150,7 +150,7 @@ struct PasswordView2 : View {
                 
                 Circle()
                     .fill(Color.blue)
-                    .frame(width: 30, height: 30)
+                    .frame(width: 25, height: 25)
             }
         }
     }
@@ -170,8 +170,8 @@ struct PasswordView3 : View {
         ZStack{
             
             Circle()
-                .stroke(Color.red,lineWidth: 2)
-                .frame(width: 30, height: 30)
+                .stroke(Color.red,lineWidth: 1)
+                .frame(width: 25, height: 25)
             
             // checking whether it is typed...
             
@@ -179,7 +179,7 @@ struct PasswordView3 : View {
                 
                 Circle()
                     .fill(Color.red)
-                    .frame(width: 30, height: 30)
+                    .frame(width: 25, height: 25)
             }
         }
     }
@@ -203,16 +203,24 @@ struct PasswordButton2 : View {
                 if value.count > 1{
                     
                     // Image...
-                    
-                    Image(systemName: "delete.left")
-                        .font(.system(size: 24))
-                        .foregroundColor(.blue)
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(.gray.opacity(0.2))
+                            .frame(width: 55, height: 55)
+                        Image(systemName: "delete.left")
+                            .font(.system(size: 24))
+                            .foregroundColor(.black)
+                    }
                 }
                 else{
-                    
-                    Text(value)
-                        .font(.title)
-                        .foregroundColor(.blue)
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(.gray.opacity(0.2))
+                            .frame(width: 55, height: 55)
+                        Text(value)
+                            .font(.body)
+                            .foregroundColor(.black)
+                    }
                 }
             }
             .padding()
@@ -283,16 +291,24 @@ struct PasswordButton3 : View {
                 if value.count > 1{
                     
                     // Image...
-                    
-                    Image(systemName: "delete.left")
-                        .font(.system(size: 24))
-                        .foregroundColor(.red)
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(.gray.opacity(0.2))
+                            .frame(width: 55, height: 55)
+                        Image(systemName: "delete.left")
+                            .font(.system(size: 24))
+                            .foregroundColor(.black)
+                    }
                 }
                 else{
-                    
-                    Text(value)
-                        .font(.title)
-                        .foregroundColor(.red)
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(.gray.opacity(0.2))
+                            .frame(width: 55, height: 55)
+                        Text(value)
+                            .font(.body)
+                            .foregroundColor(.black)
+                    }
                 }
             }
             .padding()
