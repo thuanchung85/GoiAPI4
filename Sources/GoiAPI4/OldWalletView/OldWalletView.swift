@@ -124,6 +124,8 @@ public struct OldWalletView: View {
                                         isPassOldWalletView = true
                                         
                                         
+                                        
+                                        
                                     } label: {
                                         Text("NEXT")
                                             .frame(width: 120)

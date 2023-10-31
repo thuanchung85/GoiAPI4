@@ -4,7 +4,8 @@ import CoreImage.CIFilterBuiltins
 import Foundation
 import SwiftUI
 import UniformTypeIdentifiers
-
+import web3swift
+import Web3Core
 //==========LOADING VIEW========///
 struct ActivityIndicator: UIViewRepresentable {
 
@@ -54,19 +55,31 @@ struct LoadingView<Content>: View where Content: View {
                 .onAppear(){
                     
                     DispatchQueue.global(qos: .userInteractive).async {
-                        let myWallet = Wallet()
+                        //let myWallet = Wallet()
                         var recoverString = self.string12SeedText
                         if (recoverString.last == " ")
                         {
                             recoverString.removeLast()
                         }
-                        let HDWallet_1_recover_Data = myWallet.recover_HDWallet_BIP32_with12Words(with12Words: recoverString, newName: "KhoiPhuc_CHUNGWALLET")
+                        //let HDWallet_1_recover_Data = myWallet.recover_HDWallet_BIP32_with12Words(with12Words: recoverString, newName: "KhoiPhuc_CHUNGWALLET")
                         
                        
-                        self.addressWallet = HDWallet_1_recover_Data.first ?? ""
+                        
+                        let keystore = try! BIP32Keystore(mnemonics: recoverString, password: "", mnemonicsPassword: "")
+                        let pkey = try! keystore!.UNSAFE_getPrivateKeyData(password: "", account: (keystore?.addresses?.first)!).toHexString()
+                       let privateKey = "0x"+pkey
+                        UserDefaults.standard.set( self.addressWallet, forKey: "PoolsWallet_addressWallet")
+                        self.addressWallet = (keystore?.addresses?.first)!.address
+                        print(self.addressWallet)
+                        print("pkey :\(privateKey)")
+                        let data = Data(privateKey.utf8)
+                        //save privakey vao keychain
+                        keychain_save(data, service: "PoolsWallet_\(self.addressWallet)_PKey", account: self.addressWallet)
+                        
+                        
                         self.isStillLoadingWallet = false
                         
-                        
+                       
                     }
                     
                 }
