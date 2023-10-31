@@ -10,19 +10,21 @@ public struct OldWalletView: View {
    
     @Binding var string12SeedText:String
    
-    @State var addressWallet:String = ""
+    @Binding var addressWallet:String
    
     @State var isStillLoadingWallet = true
     
     @Binding var isPassOldWalletView:Bool
     @Binding var wallNewName:String
+    
     @Binding var isPassInput12Seed:Bool
     
     //===INIT==//
-    public init(string12SeedText:Binding<String>, isPassOldWalletView:Binding<Bool>,wallNewName:Binding<String>, isPassInput12Seed:Binding<Bool>) {
+    public init(string12SeedText:Binding<String>, isPassOldWalletView:Binding<Bool>,wallNewName:Binding<String>, wallAddress:Binding<String>, isPassInput12Seed:Binding<Bool>) {
         self._string12SeedText = string12SeedText
         self._isPassOldWalletView = isPassOldWalletView
         self._wallNewName = wallNewName
+        self._addressWallet = wallAddress
         self._isPassInput12Seed = isPassInput12Seed
     }
     

@@ -14,12 +14,12 @@ public struct RecoverWallet_View: View {
     
     @Binding var isUserPassRecoveryWalletby12Seed:Bool
     @Binding var wallNewName:String
- 
+    @Binding var wallAddress:String
     
-    public init(isUserPassRecoveryWalletby12Seed:Binding<Bool>, wallNewName:Binding<String>) {
+    public init(isUserPassRecoveryWalletby12Seed:Binding<Bool>, wallNewName:Binding<String>, wallAddress:Binding<String>) {
         self._isUserPassRecoveryWalletby12Seed = isUserPassRecoveryWalletby12Seed
         self._wallNewName = wallNewName
-
+        self._wallAddress = wallAddress
     }
     
     public var body: some View{
@@ -44,7 +44,8 @@ public struct RecoverWallet_View: View {
             if (self.isPassInput12Seed == true){
                 OldWalletView(string12SeedText: $string12SeedText,
                               isPassOldWalletView: $isPassOldWalletView,
-                              wallNewName: $wallNewName, isPassInput12Seed: $isPassInput12Seed)
+                              wallNewName: $wallNewName, wallAddress:$wallAddress,
+                              isPassInput12Seed: $isPassInput12Seed)
             }//end if
         }
         
