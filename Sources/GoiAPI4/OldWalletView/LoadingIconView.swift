@@ -66,8 +66,8 @@ struct LoadingView<Content>: View where Content: View {
                        
                         do{
                             let keystore = try? BIP32Keystore(mnemonics: recoverString, password: "", mnemonicsPassword: "")
-                            let pkey = try! keystore!.UNSAFE_getPrivateKeyData(password: "", account: (keystore?.addresses?.first)!).toHexString()
-                           let privateKey = "0x"+pkey
+                            let pkey = try? keystore!.UNSAFE_getPrivateKeyData(password: "", account: (keystore?.addresses?.first)!).toHexString()
+                            let privateKey = "0x"+(pkey ?? "no pkey")
                             UserDefaults.standard.set( self.addressWallet, forKey: "PoolsWallet_addressWallet")
                             self.addressWallet = (keystore?.addresses?.first)!.address
                             print(self.addressWallet)
