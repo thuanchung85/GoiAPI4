@@ -6,7 +6,8 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 public struct RecoverWallet_View: View {
-   
+    @Binding var isBack:Bool
+    @Binding var isBack2:Bool
     
     @State var string12SeedText = ""
    @State var isPassInput12Seed = false
@@ -16,12 +17,16 @@ public struct RecoverWallet_View: View {
     @Binding var wallNewName:String
     @Binding var wallAddress:String
     
-    public init(isUserPassRecoveryWalletby12Seed:Binding<Bool>, wallNewName:Binding<String>, wallAddress:Binding<String>) {
+    //==INIT===//
+    public init(isUserPassRecoveryWalletby12Seed:Binding<Bool>, wallNewName:Binding<String>, wallAddress:Binding<String> ,isBack:Binding<Bool>, isBack2:Binding<Bool>) {
         self._isUserPassRecoveryWalletby12Seed = isUserPassRecoveryWalletby12Seed
         self._wallNewName = wallNewName
         self._wallAddress = wallAddress
+        self._isBack = isBack
+        self._isBack2 = isBack2
     }
     
+    //===BODY==///
     public var body: some View{
        
         //mới vô hiện view cho user nhập 12 từ hoặc scan qr
@@ -33,7 +38,8 @@ public struct RecoverWallet_View: View {
                 //text editor cho phep user nhập 12 từ và che dấu khi cần
                 Input12SeedsView(isPassInput12Seed: $isPassInput12Seed,
                                  text: $string12SeedText,
-                                 textHide: "", bkt: "", titleKey: "Enter your 12-seed phrase, separated by spaces")
+                                 textHide: "", bkt: "", titleKey: "Enter your 12-seed phrase, separated by spaces",
+                                 isBack:$isBack, isBack2: $isBack2)
                 
                 
                 

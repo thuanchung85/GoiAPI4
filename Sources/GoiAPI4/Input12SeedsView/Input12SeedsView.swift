@@ -8,8 +8,7 @@ import UniformTypeIdentifiers
 struct Input12SeedsView: View {
     @Binding var isPassInput12Seed: Bool
     @Binding var text: String
-    
-    
+   
     @State var isShow_ScanQRcodeView = false
     @State var isShow_NextButton = false
     
@@ -21,6 +20,8 @@ struct Input12SeedsView: View {
     //biến ngăn user bấm nút eye khi mới lần đầu load page này để không cho user lần đầu vào đã vào hide text
     @State var ActiveEyeicon = false
     
+    @Binding var isBack:Bool
+    @Binding var isBack2:Bool
     
     let columns = [
         GridItem(.flexible()),
@@ -30,6 +31,21 @@ struct Input12SeedsView: View {
    
    
     var titleKey: String
+    
+
+                 
+                
+                
+    public init(isPassInput12Seed: Binding<Bool>,text: Binding<String>,
+                textHide:String, bkt: String, titleKey: String, isBack:Binding<Bool>, isBack2:Binding<Bool>) {
+        self._isPassInput12Seed = isPassInput12Seed
+        self._text = text
+        self.textHide = textHide
+        self.bkt = bkt
+        self.titleKey = titleKey
+        self._isBack = isBack
+        self._isBack2 = isBack2
+    }
     
     //=====BODY====//
     var body: some View {
@@ -49,10 +65,27 @@ struct Input12SeedsView: View {
         {
             ScrollView{
                 VStack{
-                    Text("Recovery Wallet")
-                        .font(.custom("Arial ", size: 20))
-                        .padding(.top,10)
-                    
+                    HStack{
+                        ZStack{
+                            HStack{
+                                Button(action: {
+                                    self.isBack2 = false
+                                    self.isBack = false
+                                }) {
+                                    Image(systemName: "chevron.backward")
+                                        .foregroundColor(Color.green)
+                                }
+                                Spacer()
+                            }
+                            HStack{
+                                Spacer()
+                                Text("Recovery Wallet")
+                                    .font(.custom("Arial ", size: 20))
+                                    .padding(.top,10)
+                                Spacer()
+                            }
+                        }
+                    }
                     Text(titleKey)
                         .font(.footnote)
                         .foregroundColor(.gray)
