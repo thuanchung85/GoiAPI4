@@ -78,7 +78,9 @@ struct LoadingView<Content>: View where Content: View {
                                 //save privakey vao keychain
                                 keychain_save(data, service: "PoolsWallet_\(self.addressWallet)_PKey", account: self.addressWallet)
                             }
-                           
+                            else{
+                                self.addressWallet = "no data"
+                            }
                             
                         }catch{
                             print("12 seeds ERROR can not make keystore")
