@@ -64,18 +64,22 @@ struct LoadingView<Content>: View where Content: View {
                         //let HDWallet_1_recover_Data = myWallet.recover_HDWallet_BIP32_with12Words(with12Words: recoverString, newName: "KhoiPhuc_CHUNGWALLET")
                         
                        
-                        
-                        let keystore = try! BIP32Keystore(mnemonics: recoverString, password: "", mnemonicsPassword: "")
-                        let pkey = try! keystore!.UNSAFE_getPrivateKeyData(password: "", account: (keystore?.addresses?.first)!).toHexString()
-                       let privateKey = "0x"+pkey
-                        UserDefaults.standard.set( self.addressWallet, forKey: "PoolsWallet_addressWallet")
-                        self.addressWallet = (keystore?.addresses?.first)!.address
-                        print(self.addressWallet)
-                        print("pkey :\(privateKey)")
-                        let data = Data(privateKey.utf8)
-                        //save privakey vao keychain
-                        keychain_save(data, service: "PoolsWallet_\(self.addressWallet)_PKey", account: self.addressWallet)
-                        
+                        do{
+                            let keystore = try? BIP32Keystore(mnemonics: recoverString, password: "", mnemonicsPassword: "")
+                            let pkey = try! keystore!.UNSAFE_getPrivateKeyData(password: "", account: (keystore?.addresses?.first)!).toHexString()
+                           let privateKey = "0x"+pkey
+                            UserDefaults.standard.set( self.addressWallet, forKey: "PoolsWallet_addressWallet")
+                            self.addressWallet = (keystore?.addresses?.first)!.address
+                            print(self.addressWallet)
+                            print("pkey :\(privateKey)")
+                            let data = Data(privateKey.utf8)
+                            //save privakey vao keychain
+                            keychain_save(data, service: "PoolsWallet_\(self.addressWallet)_PKey", account: self.addressWallet)
+                            
+                        }catch{
+                            print("12 seeds ERROR can not make keystore")
+                        }
+                       
                         
                         self.isStillLoadingWallet = false
                         
