@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import AVKit
 
-struct QR_ScannerView: View {
+public struct QR_ScannerView: View {
     
     @State  var session:AVCaptureSession = .init()
     @State var qrOutput:AVCaptureMetadataOutput = .init()
@@ -31,7 +31,7 @@ struct QR_ScannerView: View {
     }
     
     //===BODY==//
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 8){
            
             Text("Place the QR code inside the area")
