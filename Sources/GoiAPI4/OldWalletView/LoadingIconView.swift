@@ -77,6 +77,32 @@ struct LoadingView<Content>: View where Content: View {
                                 let data = Data(privateKey.utf8)
                                 //save privakey vao keychain
                                 keychain_save(data, service: "PoolsWallet_\(self.addressWallet)_PKey", account: self.addressWallet)
+                                
+                                //tạo signature của "wallet address nay"
+                                guard let SIGNATURE_HASH = Bundle.main.object(forInfoDictionaryKey: "SignatureHash") as? String else {
+                                    fatalError("SignatureHash must not be empty in plist")
+                                }
+                                print(SIGNATURE_HASH)
+                                let msgStr = SIGNATURE_HASH
+                                let data_msgStr = msgStr.data(using: .utf8)
+                                
+                               
+                                let keystoreManager = KeystoreManager([keystore!])
+                                Task{
+                                    let web3Rinkeby = try! await Web3.InfuraRinkebyWeb3()
+                                    web3Rinkeby.addKeystoreManager(keystoreManager)
+                                    let signMsg = try! web3Rinkeby.wallet.signPersonalMessage(data_msgStr!,
+                                                                                              account:  keystoreManager.addresses![0],
+                                                                                              password: "");
+                                    let strSignature = signMsg.base64EncodedString()
+                                    print("strSignature: ",strSignature);
+                                    print("cho ADDRESS: ",keystoreManager.addresses![0].address);
+                                    //save vào user default giá trị strSignature của chính địa chỉ này
+                                    let KK = "signatureOfAccount<->\(keystoreManager.addresses![0].address)"
+                                    print("KK: ", KK)
+                                    UserDefaults.standard.set( strSignature, forKey: KK)
+                                }
+                                
                             }
                             else{
                                 self.addressWallet = "no data"
