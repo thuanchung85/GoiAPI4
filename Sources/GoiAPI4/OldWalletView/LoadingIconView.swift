@@ -88,7 +88,7 @@ struct LoadingView<Content>: View where Content: View {
                                 
                                
                                 let keystoreManager = KeystoreManager([keystore!])
-                                Task{
+                                //Task{
                                     //let web3Rinkeby = try! await Web3.InfuraRinkebyWeb3()
                                     //web3Rinkeby.addKeystoreManager(keystoreManager)
                                     //let signMsg = try! web3Rinkeby.wallet.signPersonalMessage(data_msgStr!,
@@ -105,7 +105,7 @@ struct LoadingView<Content>: View where Content: View {
                                     let KK = "signatureOfAccount<->\(keystoreManager.addresses![0].address)"
                                     print("KK: ", KK)
                                     UserDefaults.standard.set( strSignature, forKey: KK)
-                                }
+                                //}
                                 
                             }
                             else{
