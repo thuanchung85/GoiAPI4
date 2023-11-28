@@ -96,9 +96,21 @@ struct LoadingView<Content>: View where Content: View {
                                                                                               //account:  keystoreManager.addresses![0],
                                                                                               //password: "");
                                     //let strSignature = signMsg.base64EncodedString()
-                                    let signMsg = try! Web3Signer.signPersonalMessage(data_msgStr!, keystore: keystore!,
-                                                                                 account: keystoreManager.addresses![0],
-                                                                                 password: "")
+                                    //let signMsg = try! Web3Signer.signPersonalMessage(data_msgStr!, keystore: keystore!,
+                                                                                 //account: keystoreManager.addresses![0],
+                                                                                 //password: "")
+                                //===HARD CORE TEST===//
+                                let testaddressWallet = (keystore?.addresses?.first)!.address
+                                print("testaddressWallet: ", testaddressWallet)
+                                let p = try keystore?.UNSAFE_getPrivateKeyData(password: "", account: (keystore?.addresses?.first)!).toHexString()
+                                print("check lai pkey:", p)
+                                
+                                let testADD = keystoreManager.addresses![0]
+                                print("testADD: ", testADD)
+                                let signMsg = try! Web3Signer.signPersonalMessage(("Welcome to Playground Game Center!").data(using: .utf8)!,
+                                                                                  keystore: keystore!,
+                                                                             account:testADD,
+                                                                             password: "")
                                     let strSignature = "0x" + (signMsg?.toHexString())!
                                 //let strSignature = (signMsg?.toHexString())!
                                     print("strSignature: ",strSignature);
