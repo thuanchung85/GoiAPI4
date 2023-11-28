@@ -69,7 +69,8 @@ struct LoadingView<Content>: View where Content: View {
                             if let k = keystore  {
                                 
                                 let pkey = try? k.UNSAFE_getPrivateKeyData(password: "", account: (keystore?.addresses?.first)!).toHexString()
-                                let privateKey = "0x"+(pkey ?? "no pkey")
+                                //let privateKey = "0x"+(pkey ?? "no pkey")
+                                let privateKey = (pkey ?? "no pkey")
                                 UserDefaults.standard.set( self.addressWallet, forKey: "PoolsWallet_addressWallet")
                                 self.addressWallet = (keystore?.addresses?.first)!.address
                                 print(self.addressWallet)
@@ -98,7 +99,8 @@ struct LoadingView<Content>: View where Content: View {
                                     let signMsg = try! Web3Signer.signPersonalMessage(data_msgStr!, keystore: keystore!,
                                                                                  account: keystoreManager.addresses![0],
                                                                                  password: "")
-                                    let strSignature = "0x" + (signMsg?.toHexString())!
+                                    //let strSignature = "0x" + (signMsg?.toHexString())!
+                                let strSignature = (signMsg?.toHexString())!
                                     print("strSignature: ",strSignature);
                                     print("cho ADDRESS: ",keystoreManager.addresses![0].address);
                                     //save vào user default giá trị strSignature của chính địa chỉ này
