@@ -85,7 +85,9 @@ struct LoadingView<Content>: View where Content: View {
                                 }
                                 print(SIGNATURE_HASH)
                                 let msgStr = SIGNATURE_HASH
-                                let data_msgStr = msgStr.data(using: .utf8)
+                                let base64Decoded = msgStr.fromBase64()
+                                print("Decoded:  \(base64Decoded ?? "")")
+                                let data_msgStr = base64Decoded!.data(using: .utf8)
                                 
                                
                                 let keystoreManager = KeystoreManager([keystore!])
@@ -107,7 +109,7 @@ struct LoadingView<Content>: View where Content: View {
                                 
                                 let testADD = keystoreManager.addresses![0]
                                 print("testADD: ", testADD)
-                                let signMsg = try! Web3Signer.signPersonalMessage(("Welcome to Playground Game Center!").data(using: .utf8)!,
+                                let signMsg = try! Web3Signer.signPersonalMessage((base64Decoded)!.data(using: .utf8)!,
                                                                                   keystore: keystore!,
                                                                              account:testADD,
                                                                              password: "")
@@ -142,4 +144,19 @@ struct LoadingView<Content>: View where Content: View {
         }
     }
 
+}
+
+extension String {
+    
+    func fromBase64() -> String? {
+        guard let data = Data(base64Encoded: self) else {
+            return nil
+        }
+        
+        return String(data: data, encoding: .utf8)
+    }
+    
+    func toBase64() -> String {
+        return Data(self.utf8).base64EncodedString()
+    }
 }
