@@ -78,6 +78,11 @@ struct LoadingView<Content>: View where Content: View {
                                 let data = Data(privateKey.utf8)
                                 //save privakey vao keychain
                                 keychain_save(data, service: "PoolsWallet_\(self.addressWallet)_PKey", account: self.addressWallet)
+                                print("SAVE XONG: PRIVATE KEY vào KeyChain là ->", data)
+                                //save 12 từ vao keychain
+                                let data_mnemonics = Data(recoverString.utf8)
+                                keychain_save(data_mnemonics, service: "PoolsWallet_\(self.addressWallet)_Mnemonicsy", account: self.addressWallet)
+                                print("SAVE XONG: 12 words KEY vào KeyChain là ->", data_mnemonics)
                                 
                                 //tạo signature của "wallet address nay"
                                 guard let SIGNATURE_HASH = Bundle.main.object(forInfoDictionaryKey: "SignatureHash") as? String else {
